@@ -206,8 +206,8 @@ export function Skills() {
 
       {/* Full-bleed marquee: the rows break past the page gutter so pills keep
           entering and leaving at the viewport edges. */}
-      <Reveal className="mt-14">
-        <div className="-mx-5 flex flex-col gap-3 sm:-mx-8 sm:gap-4 lg:-mx-14">
+      <Reveal className="mt-14 w-full max-w-full overflow-hidden">
+        <div className="-mx-5 flex flex-col gap-3 md:-mx-8 md:gap-4 xl:-mx-14">
           {marqueeRows.map((row) => (
             <MarqueeRow key={row.id} row={row} />
           ))}

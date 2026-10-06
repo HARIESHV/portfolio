@@ -116,9 +116,14 @@
     /* Navbar is 72px; anchor targets must clear it. */
     scroll-padding-top: 6rem;
     -webkit-text-size-adjust: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   body {
+    width: 100%;
+    max-width: 100%;
     background-color: var(--color-paper);
     background-image:
       radial-gradient(ellipse 70% 45% at 50% -12%, rgb(200 230 201 / 0.35), transparent 75%),
@@ -168,9 +173,14 @@
   img,
   svg,
   video,
-  canvas {
+  canvas,
+  iframe {
     display: block;
     max-width: 100%;
+  }
+
+  img {
+    height: auto;
   }
 
   button,

@@ -125,7 +125,7 @@ function ServiceCard({ service }) {
       >
         <article
           className={cn(
-            'group relative flex h-full flex-col overflow-hidden rounded-[17px] border p-6 shadow-soft transition-[background-color,border-color,box-shadow] duration-500 sm:p-7',
+            'group relative flex h-full max-w-full min-w-0 flex-col overflow-hidden rounded-[17px] border p-5 shadow-soft transition-[background-color,border-color,box-shadow] duration-500 sm:p-7',
             isYellow
               ? 'border-[#F2E8A5] bg-[#FFF9D6] hover:border-[#2E5D3B]/40 hover:bg-[#FFF4B8] hover:shadow-lift'
               : 'border-[#C8E6C9] bg-[#E8F5E9] hover:border-[#2E5D3B]/40 hover:bg-[#DFF1DF] hover:shadow-lift',
@@ -138,7 +138,7 @@ function ServiceCard({ service }) {
             </span>
             <span
               className={cn(
-                'flex h-11 w-11 items-center justify-center rounded-full shadow-sm transition-transform duration-300 group-hover:scale-110',
+                'flex h-11 w-11 shrink-0 items-center justify-center rounded-full shadow-sm transition-transform duration-300 group-hover:scale-110',
                 isYellow ? 'bg-[#C8E6C9] text-[#2E5D3B]' : 'bg-[#FFF4B8] text-[#2E5D3B]',
               )}
             >
@@ -147,12 +147,12 @@ function ServiceCard({ service }) {
           </div>
 
           {/* Title */}
-          <h3 className="mt-5 text-xl font-bold leading-tight tracking-[-0.025em] text-[#2E5D3B] sm:text-2xl">
+          <h3 className="mt-5 text-xl font-bold leading-tight tracking-[-0.025em] text-[#2E5D3B] sm:text-2xl break-words">
             {service.title}
           </h3>
 
           {/* Description */}
-          <p className="mt-3 min-h-[4.5rem] text-sm leading-relaxed text-[#425846] sm:text-[0.9375rem]">
+          <p className="mt-3 min-h-[4.5rem] text-sm leading-relaxed text-[#425846] sm:text-[0.9375rem] break-words">
             {service.description}
           </p>
 
@@ -164,7 +164,7 @@ function ServiceCard({ service }) {
             {service.technologies.map((tech) => (
               <li
                 key={tech}
-                className="rounded-control border border-[#DDE8D8] bg-white/90 px-2.5 py-1 font-mono text-[0.6875rem] font-medium text-[#172117] shadow-2xs"
+                className="rounded-control border border-[#DDE8D8] bg-white/90 px-2.5 py-1 font-mono text-[0.6875rem] font-medium text-[#172117] shadow-2xs break-words"
               >
                 {tech}
               </li>
@@ -175,14 +175,14 @@ function ServiceCard({ service }) {
           <h4 className="mt-6 font-mono text-[0.625rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
             Key Capabilities
           </h4>
-          <ul className="mt-3 grid gap-x-3 gap-y-2 sm:grid-cols-2">
+          <ul className="mt-3 grid gap-x-3 gap-y-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2">
             {service.features.map((feature) => (
               <li
                 key={feature}
-                className="flex items-start gap-2 text-[0.8125rem] font-medium leading-snug text-[#172117]"
+                className="flex min-w-0 items-start gap-2 text-[0.8125rem] font-medium leading-snug text-[#172117]"
               >
                 <Icon name="Check" size={14} className="mt-0.5 shrink-0 text-[#2E5D3B]" />
-                {feature}
+                <span className="min-w-0 flex-1 break-words">{feature}</span>
               </li>
             ))}
           </ul>
