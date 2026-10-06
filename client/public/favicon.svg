@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Hariesh V">
+  <title>Hariesh V</title>
+  <rect width="64" height="64" rx="16" fill="#2E5D3B"/>
+
+  <!-- Light yellow spine -->
+  <rect x="13" y="18" width="5" height="28" rx="2.5" fill="#FFF4B8"/>
+
+  <!-- Geometric H, drawn as bars with crisp white and light green accent -->
+  <rect x="25" y="18" width="6" height="28" rx="2" fill="#FFFFFF"/>
+  <rect x="43" y="18" width="6" height="28" rx="2" fill="#FFFFFF"/>
+  <rect x="25" y="29" width="24" height="6" rx="1.5" fill="#C8E6C9"/>
+</svg>
