@@ -131,7 +131,7 @@ export function ContactForm() {
     <form
       noValidate
       onSubmit={handleSubmit}
-      className="rounded-[22px] border border-[#DDE8D8] bg-white p-6 shadow-soft sm:p-8"
+      className="rounded-[22px] border border-[#DDE8D8] bg-white p-5 shadow-soft sm:p-8 max-w-full min-w-0"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         {FIELDS.map((field) => (
@@ -145,6 +145,7 @@ export function ContactForm() {
             maxLength={field.name === 'email' ? 254 : LIMITS[field.name]?.max}
             onChange={handleChange}
             onBlur={handleBlur}
+            containerClassName={field.name === 'subject' ? 'sm:col-span-2' : undefined}
           />
         ))}
       </div>
@@ -165,7 +166,7 @@ export function ContactForm() {
       />
 
       <div className="mt-7 flex flex-col-reverse items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-mono text-[0.6875rem] leading-relaxed text-[#6c8471]">
+        <p className="font-mono text-[0.6875rem] leading-relaxed text-[#6c8471] break-words">
           Direct transmission straight to my verified inbox.
         </p>
 
@@ -174,7 +175,7 @@ export function ContactForm() {
           type="submit"
           disabled={isSubmitting}
           aria-busy={isSubmitting}
-          className="inline-flex h-12 items-center justify-center gap-2.5 rounded-control bg-[#2E5D3B] px-8 text-[0.9375rem] font-semibold text-white shadow-soft transition-all duration-200 hover:bg-[#244b2f] hover:shadow-lift active:translate-y-px disabled:pointer-events-none disabled:opacity-70 cursor-pointer"
+          className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2.5 rounded-control bg-[#2E5D3B] px-8 text-[0.9375rem] font-semibold text-white shadow-soft transition-all duration-200 hover:bg-[#244b2f] hover:shadow-lift active:translate-y-px disabled:pointer-events-none disabled:opacity-70 cursor-pointer"
         >
           {isSubmitting ? (
             <>
@@ -237,13 +238,14 @@ function Field({
   onChange,
   onBlur,
   disabled,
+  containerClassName,
   ...inputProps
 }) {
   const describedBy = error ? `${id}-error` : undefined;
   const Component = as;
 
   return (
-    <div className={cn('flex flex-col gap-2', as === 'textarea' && 'mt-5')}>
+    <div className={cn('flex flex-col gap-2 min-w-0', as === 'textarea' && 'mt-5', containerClassName)}>
       <label htmlFor={id} className="text-sm font-semibold text-[#172117]">
         {label}
       </label>

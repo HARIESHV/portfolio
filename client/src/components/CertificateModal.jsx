@@ -130,25 +130,25 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
         style={{ zIndex: Z.modalContent }}
       >
         {/* Header Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#DDE8D8] bg-[#FAFDF7] px-4 py-3 sm:px-6 sm:py-3.5">
+        <div className="flex items-center justify-between gap-2.5 sm:gap-3 border-b border-[#DDE8D8] bg-[#FAFDF7] px-3.5 py-3 sm:px-6 sm:py-3.5">
           {/* Left: Certificate Metadata */}
-          <div className="flex min-w-0 items-center gap-3">
+          <div className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#C8E6C9] bg-[#E8F5E9] text-[#2E5D3B]">
               <Icon name={certificate.icon || 'Award'} size={18} />
             </span>
 
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
                 <span className="hidden sm:inline-block rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2 py-0.5 font-mono text-[0.625rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B]">
                   {certificate.organization}
                 </span>
-                <span className="font-mono text-[0.6875rem] text-[#6c8471]">
+                <span className="font-mono text-[0.6875rem] text-[#6c8471] truncate">
                   ID: <span className="font-semibold text-[#2E5D3B]">{certificate.certificateId}</span>
                 </span>
               </div>
               <h2
                 id="certificate-modal-title"
-                className="truncate text-base font-bold tracking-tight text-[#2E5D3B] sm:text-lg"
+                className="truncate text-sm font-bold tracking-tight text-[#2E5D3B] sm:text-lg"
                 title={certificate.title}
               >
                 {certificate.title}
@@ -157,7 +157,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
           </div>
 
           {/* Right: Controls & Actions */}
-          <div className="flex items-center gap-1 sm:gap-2">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
             {/* Zoom Controls (hidden on very narrow mobile screens) */}
             <div className="hidden sm:flex items-center gap-1 rounded-control border border-[#DDE8D8] bg-white p-1 shadow-2xs">
               <button
@@ -278,21 +278,21 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
               src={`${encodedFileUrl}#view=FitH&toolbar=0&navpanes=0`}
               title={certificate.title}
               onLoad={() => setIsLoading(false)}
-              className="h-full w-full min-h-[460px] sm:min-h-[580px] rounded-lg border-0 bg-white shadow-2xl"
+              className="h-full w-full min-h-[340px] sm:min-h-[580px] rounded-lg border-0 bg-white shadow-2xl"
             />
           </div>
         </div>
 
         {/* Bottom Mobile Bar / Info Footer */}
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-[#DDE8D8] bg-[#FAFDF7] px-4 py-2.5 text-xs text-[#425846]">
-          <div className="flex items-center gap-2">
-            <span className="inline-block h-2 w-2 rounded-full bg-[#2E5D3B]" />
-            <span className="font-medium text-[#172117]">{certificate.organization}</span>
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="inline-block h-2 w-2 shrink-0 rounded-full bg-[#2E5D3B]" />
+            <span className="font-medium text-[#172117] truncate max-w-[160px] sm:max-w-none">{certificate.organization}</span>
             <span aria-hidden="true" className="text-[#DDE8D8]">·</span>
             <span className="hidden sm:inline">{certificate.date}</span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <a
               href={encodedFileUrl}
               target="_blank"

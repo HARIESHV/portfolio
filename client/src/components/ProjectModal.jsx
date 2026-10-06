@@ -52,7 +52,7 @@ function ProjectModalDialog({ project, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center overflow-hidden p-2.5 sm:p-4 md:p-6"
+      className="fixed inset-0 flex items-center justify-center overflow-hidden p-2 sm:p-4 md:p-6"
       style={{ zIndex: Z.modalBackdrop }}
     >
       {/* Backdrop */}
@@ -79,18 +79,18 @@ function ProjectModalDialog({ project, onClose }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={reduce ? { opacity: 0 } : { opacity: 0, y: 16, scale: 0.99 }}
         transition={reduce ? { duration: 0 } : { duration: 0.35, ease: EASE_OUT_EXPO }}
-        className="relative flex h-[94dvh] w-full max-w-4xl flex-col overflow-hidden rounded-[20px] sm:rounded-[26px] border border-[#DDE8D8] bg-white shadow-lift"
+        className="relative flex h-[94dvh] w-full max-w-4xl flex-col overflow-hidden rounded-[18px] sm:rounded-[26px] border border-[#DDE8D8] bg-white shadow-lift"
         style={{ zIndex: Z.modalContent }}
       >
         {/* Header Toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#DDE8D8] bg-[#FAFDF7] px-5 py-3.5 sm:px-7 sm:py-4">
-          <div className="flex min-w-0 items-center gap-2.5">
+        <div className="flex items-center justify-between gap-3 border-b border-[#DDE8D8] bg-[#FAFDF7] px-4 py-3 sm:px-7 sm:py-4">
+          <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-2.5">
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#C8E6C9] bg-[#E8F5E9] text-[#2E5D3B]">
               <Icon name="Activity" size={18} />
             </span>
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2.5 py-0.5 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B]">
+                <span className="inline-block max-w-full truncate rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2.5 py-0.5 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B]">
                   {project.category}
                 </span>
                 {project.duration ? (
@@ -108,7 +108,7 @@ function ProjectModalDialog({ project, onClose }) {
             onClick={close}
             aria-label="Close project details"
             title="Close dialog (Esc)"
-            className="flex h-9 w-9 items-center justify-center rounded-control border border-[#DDE8D8] bg-white text-[#2E5D3B] transition-colors duration-200 hover:bg-[#E8F5E9] cursor-pointer"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-control border border-[#DDE8D8] bg-white text-[#2E5D3B] transition-colors duration-200 hover:bg-[#E8F5E9] cursor-pointer"
           >
             <Icon name="X" size={16} />
           </button>
@@ -166,7 +166,7 @@ function ProjectModalDialog({ project, onClose }) {
             </div>
             <h2
               id="project-modal-title"
-              className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-[#2E5D3B]"
+              className="mt-2 text-xl sm:text-3xl font-bold tracking-tight text-[#2E5D3B] break-words"
             >
               {project.name}
             </h2>
@@ -283,8 +283,8 @@ function ProjectModalDialog({ project, onClose }) {
         </div>
 
         {/* Sticky Action Footer */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[#DDE8D8] bg-[#FAFDF7] px-5 py-4 sm:px-7">
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 border-t border-[#DDE8D8] bg-[#FAFDF7] px-4 py-3 sm:px-7 sm:py-4">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
             {/* 8. GitHub repository link */}
             <ActionLink
               href={project.links.github}
@@ -294,6 +294,7 @@ function ProjectModalDialog({ project, onClose }) {
               variant="primary"
               size="sm"
               unavailableLabel="Repository link is not available yet"
+              className="w-full min-[400px]:w-auto justify-center"
             />
 
             {/* 9. Live Demo button only if a valid deployment URL is configured */}
@@ -306,6 +307,7 @@ function ProjectModalDialog({ project, onClose }) {
                 variant="secondary"
                 size="sm"
                 unavailableLabel="Live demo link is not available yet"
+                className="w-full min-[400px]:w-auto justify-center"
               />
             ) : null}
           </div>
@@ -313,7 +315,7 @@ function ProjectModalDialog({ project, onClose }) {
           <button
             type="button"
             onClick={close}
-            className="inline-flex h-9 items-center gap-1.5 rounded-control border border-[#DDE8D8] bg-white px-4 text-xs font-semibold text-[#2E5D3B] transition-colors duration-200 hover:bg-[#E8F5E9] cursor-pointer"
+            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-control border border-[#DDE8D8] bg-white px-4 text-xs font-semibold text-[#2E5D3B] transition-colors duration-200 hover:bg-[#E8F5E9] cursor-pointer w-full sm:w-auto"
           >
             Close
           </button>

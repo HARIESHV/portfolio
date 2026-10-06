@@ -67,7 +67,7 @@ export function Contact() {
       <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Contact info card (White card with soft border) */}
         <Reveal className="lg:col-span-5">
-          <div className="rounded-[22px] border border-[#DDE8D8] bg-white p-6 shadow-soft sm:p-7">
+          <div className="rounded-[22px] border border-[#DDE8D8] bg-white p-5 shadow-soft sm:p-7 max-w-full min-w-0">
             <h3 className="font-mono text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
               Direct Contact & Socials
             </h3>
@@ -83,11 +83,11 @@ export function Contact() {
                       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-dashed border-[#DDE8D8] bg-[#FAFDF7] text-[#6c8471]">
                         <Icon name={detail.icon} size={17} />
                       </span>
-                      <span className="min-w-0">
+                      <span className="min-w-0 flex-1">
                         <span className="block font-mono text-[0.625rem] font-medium uppercase tracking-[0.18em] text-[#6c8471]">
                           {detail.label}
                         </span>
-                        <span className="mt-0.5 block truncate text-[0.875rem] font-medium text-[#6c8471]">
+                        <span className="mt-0.5 block break-words [overflow-wrap:anywhere] text-[0.875rem] font-medium text-[#6c8471]">
                           {detail.value}
                         </span>
                       </span>
@@ -107,7 +107,7 @@ export function Contact() {
                         <span className="block font-mono text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-[#6c8471]">
                           {detail.label}
                         </span>
-                        <span className="mt-0.5 block truncate text-[0.875rem] font-bold text-[#172117]">
+                        <span className="mt-0.5 block break-all sm:break-normal [overflow-wrap:anywhere] text-[0.875rem] font-bold text-[#172117]">
                           {detail.value}
                         </span>
                       </span>

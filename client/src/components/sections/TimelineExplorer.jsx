@@ -25,7 +25,7 @@ export function TimelineExplorer({ id, label, entries }) {
                   aria-current={isActive ? 'true' : undefined}
                   aria-controls={`${id}-details`}
                   onClick={() => setActiveId(entry.id)}
-                  className={`group relative flex min-h-[92px] w-full items-center gap-4 overflow-hidden rounded-2xl border p-4 text-left transition-[border-color,background-color,box-shadow,transform] duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B9562A] sm:min-h-[104px] sm:p-5 ${
+                  className={`group relative flex min-h-[92px] w-full items-center gap-3 overflow-hidden rounded-2xl border p-3.5 text-left transition-[border-color,background-color,box-shadow,transform] duration-200 active:translate-y-px focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#B9562A] sm:min-h-[104px] sm:gap-4 sm:p-5 ${
                     isActive
                       ? 'border-[#E6A17E] bg-[#FFFDF8] shadow-[0_8px_24px_rgba(122,72,41,0.09)]'
                       : 'border-[#E9E1D5] bg-white/75 hover:-translate-y-0.5 hover:border-[#E3C7B4] hover:bg-white'
@@ -40,7 +40,7 @@ export function TimelineExplorer({ id, label, entries }) {
                     />
                   ) : null}
                   <span
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-colors duration-200 ${
+                    className={`flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border transition-colors duration-200 ${
                       isActive
                         ? 'border-[#F1C7AD] bg-[#FCEBDD] text-[#A74A24]'
                         : 'border-[#EEE7DB] bg-[#FAF7F0] text-[#777064] group-hover:text-[#A74A24]'
@@ -55,7 +55,7 @@ export function TimelineExplorer({ id, label, entries }) {
                     <span className="mt-1 block truncate text-xs text-[#716B60] sm:text-[0.8125rem]">
                       {entry.organization}
                     </span>
-                    <span className="mt-1.5 block font-mono text-[0.625rem] leading-4 text-[#8A8276] sm:text-[0.6875rem]">
+                    <span className="mt-1.5 block font-mono text-[0.625rem] leading-4 text-[#8A8276] sm:text-[0.6875rem] break-words [overflow-wrap:anywhere]">
                       {entry.navMeta}
                     </span>
                   </span>
@@ -85,45 +85,45 @@ export function TimelineExplorer({ id, label, entries }) {
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -5 }}
             transition={reduce ? { duration: 0 } : { duration: 0.24, ease: EASE_OUT_EXPO }}
-            className="h-full rounded-2xl border border-[#E9E1D5] bg-[#FFFEFA] p-5 shadow-[0_12px_36px_rgba(88,64,39,0.06)] sm:p-7 lg:p-8"
+            className="h-full max-w-full min-w-0 rounded-2xl border border-[#E9E1D5] bg-[#FFFEFA] p-4 shadow-[0_12px_36px_rgba(88,64,39,0.06)] sm:p-7 lg:p-8"
           >
-            <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[#EEE7DB] pb-5 sm:pb-6">
-              <div className="flex min-w-0 items-start gap-3.5">
-                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#FCEBDD] text-[#A74A24]">
-                  <Icon name={activeEntry.icon} size={19} />
+            <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#EEE7DB] pb-4 sm:pb-6">
+              <div className="flex min-w-0 flex-1 items-start gap-3 sm:gap-3.5">
+                <span className="mt-0.5 flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-xl bg-[#FCEBDD] text-[#A74A24]">
+                  <Icon name={activeEntry.icon} size={18} />
                 </span>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <p className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.12em] text-[#897E70]">
                     {activeEntry.kind}
                   </p>
-                  <h3 className="mt-1.5 text-xl font-semibold leading-tight text-[#292820] sm:text-2xl">
+                  <h3 className="mt-1 text-lg font-semibold leading-tight text-[#292820] sm:text-2xl break-words">
                     {activeEntry.title}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-[#70695D]">
+                  <p className="mt-1 text-sm font-medium text-[#70695D] break-words">
                     {activeEntry.organization}
                   </p>
                 </div>
               </div>
-              <span className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#F0D5A0] bg-[#FFF4D7] px-3 py-1.5 text-xs font-semibold text-[#704E19]">
+              <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-[#F0D5A0] bg-[#FFF4D7] px-2.5 py-1 text-xs font-semibold text-[#704E19]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#C45B2B]" />
                 {activeEntry.status}
               </span>
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[#756D61] sm:mt-6 sm:text-sm">
-              <span className="inline-flex items-center gap-2">
-                <Icon name="Calendar" size={15} className="text-[#A74A24]" />
-                {activeEntry.duration}
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#756D61] sm:mt-6 sm:text-sm">
+              <span className="inline-flex min-w-0 items-center gap-2 break-words">
+                <Icon name="Calendar" size={15} className="shrink-0 text-[#A74A24]" />
+                <span className="min-w-0 break-words">{activeEntry.duration}</span>
               </span>
               {activeEntry.location ? (
-                <span className="inline-flex items-center gap-2">
-                  <Icon name="MapPin" size={15} className="text-[#A74A24]" />
-                  {activeEntry.location}
+                <span className="inline-flex min-w-0 items-center gap-2 break-words">
+                  <Icon name="MapPin" size={15} className="shrink-0 text-[#A74A24]" />
+                  <span className="min-w-0 break-words">{activeEntry.location}</span>
                 </span>
               ) : null}
             </div>
 
-            <p className="mt-5 max-w-[66ch] text-sm leading-6 text-[#575349] sm:mt-6 sm:text-[0.9375rem] sm:leading-7">
+            <p className="mt-4 max-w-[66ch] text-sm leading-6 text-[#575349] sm:mt-6 sm:text-[0.9375rem] sm:leading-7 break-words [overflow-wrap:anywhere]">
               {activeEntry.description}
             </p>
 
@@ -131,9 +131,9 @@ export function TimelineExplorer({ id, label, entries }) {
               <h4 className="text-xs font-semibold text-[#37342D]">{activeEntry.listTitle}</h4>
               <ul className="mt-3 grid gap-2.5 sm:gap-3">
                 {activeEntry.points.map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-sm leading-5 text-[#575349]">
+                  <li key={point} className="flex min-w-0 items-start gap-2.5 text-sm leading-5 text-[#575349]">
                     <span className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#D9874E]" />
-                    <span>{point}</span>
+                    <span className="min-w-0 flex-1 break-words [overflow-wrap:anywhere]">{point}</span>
                   </li>
                 ))}
               </ul>
@@ -144,7 +144,7 @@ export function TimelineExplorer({ id, label, entries }) {
                 {activeEntry.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-[#EADFCB] bg-[#FAF4E8] px-3 py-1.5 font-mono text-[0.625rem] font-medium text-[#62543E] sm:text-[0.6875rem]"
+                    className="max-w-full rounded-full border border-[#EADFCB] bg-[#FAF4E8] px-3 py-1.5 font-mono text-[0.625rem] font-medium text-[#62543E] sm:text-[0.6875rem] break-words [overflow-wrap:anywhere]"
                   >
                     {tag}
                   </span>

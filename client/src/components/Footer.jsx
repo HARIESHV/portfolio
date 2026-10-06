@@ -14,11 +14,11 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-[#244b2f] bg-[#2E5D3B] text-white">
+    <footer className="w-full max-w-full overflow-x-clip border-t border-[#244b2f] bg-[#2E5D3B] text-white">
       <div className="container-page py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Identity */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 min-w-0">
             <a
               href="#home"
               onClick={(event) => handleNavigate(event, '#home')}
@@ -41,18 +41,18 @@ export function Footer() {
           </div>
 
           {/* Navigation with light yellow hover accents */}
-          <nav aria-label="Footer" className="lg:col-span-4">
+          <nav aria-label="Footer" className="lg:col-span-4 min-w-0">
             <h2 className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#C8E6C9]">
               Navigation
             </h2>
 
             <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-1 lg:gap-y-1">
               {navigation.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} className="min-w-0">
                   <a
                     href={item.href}
                     onClick={(event) => handleNavigate(event, item.href)}
-                    className="inline-block py-1 text-sm font-medium text-white/80 transition-colors duration-200 hover:text-[#FFF4B8]"
+                    className="inline-block py-1 text-sm font-medium text-white/80 transition-colors duration-200 hover:text-[#FFF4B8] break-words"
                   >
                     {item.label}
                   </a>
@@ -62,7 +62,7 @@ export function Footer() {
           </nav>
 
           {/* Social with light green/yellow hover accents */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 min-w-0">
             <h2 className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#C8E6C9]">
               Connect
             </h2>
