@@ -123,8 +123,8 @@ export function Footer() {
         </div>
 
         {/* Base line */}
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-7 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono text-[0.6875rem] text-white/70">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-7 sm:flex-row sm:items-center sm:justify-between min-w-0">
+          <p className="font-mono text-[0.6875rem] text-white/70 break-words">
             © 2026 Hariesh V. All rights reserved.
           </p>
 

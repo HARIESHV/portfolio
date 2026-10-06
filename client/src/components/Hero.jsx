@@ -175,7 +175,7 @@ export function Hero() {
               initial={reduce ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={reduce ? { duration: 0 } : { duration: 0.7, delay: 0.46 }}
-              className="mt-8 flex items-center gap-2.5 border-t border-[#DDE8D8] pt-6"
+              className="mt-8 flex flex-wrap items-center gap-2.5 border-t border-[#DDE8D8] pt-6"
             >
               <span className="mr-1 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[#6c8471]">
                 Connect

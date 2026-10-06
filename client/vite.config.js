@@ -10,7 +10,10 @@ import tailwindcss from '@tailwindcss/vite';
  * placeholder in the shipped HTML. This always produces a valid URL.
  */
 function siteUrlPlugin(siteUrl) {
-  const normalised = siteUrl.replace(/\/+$/, '');
+  let normalised = (siteUrl || '').trim().replace(/\/+$/, '');
+  if (normalised && !normalised.startsWith('http://') && !normalised.startsWith('https://')) {
+    normalised = `https://${normalised}`;
+  }
 
   // A malformed value would emit a broken canonical tag, so fail the build
   // rather than shipping it.
