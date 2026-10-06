@@ -89,7 +89,7 @@ service, so the backend must be running for the contact form to work.
 | --- | --- | --- |
 | `MONGODB_URI` | yes | Must start with `mongodb`. Validated at boot |
 | `RESEND_API_KEY` | yes | Must start with `re_` |
-| `CONTACT_EMAIL` | no | Inbox for notifications. Defaults to the profile address |
+| `CONTACT_EMAIL` | yes | Inbox for notifications. Defaults to the profile address |
 | `RESEND_FROM_EMAIL` | no | Verified sender. Defaults to the Resend onboarding address |
 | `CLIENT_URL` | no | Included in the CORS allow-list. Defaults to `http://localhost:5173` |
 | `ALLOWED_ORIGINS` | no | Comma-separated extra origins |
