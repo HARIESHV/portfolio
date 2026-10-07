@@ -97,7 +97,7 @@ export function Certifications() {
  * Individual Certificate Card.
  * Structure: Certificate → Details → View → Download
  */
-function CertificateCard({ certificate, index, onView, onDownload }) {
+function CertificateCard({ certificate, onView, onDownload }) {
   const reduce = useReducedMotion();
 
   return (
