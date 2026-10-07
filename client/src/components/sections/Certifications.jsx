@@ -71,11 +71,10 @@ export function Certifications() {
 
       {/* Responsive layout: Mobile 1 card, Tablet 2 cards, Desktop 3 cards */}
       <RevealGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {certificates.map((certificate, index) => (
+        {certificates.map((certificate) => (
           <RevealItem key={certificate.id}>
             <CertificateCard
               certificate={certificate}
-              index={index}
               onView={handleView}
               onDownload={handleDownload}
             />
