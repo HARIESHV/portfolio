@@ -9,8 +9,11 @@ import { Certifications } from './components/sections/Certifications';
 import { Contact } from './components/sections/Contact';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { useInitialHashScroll } from './hooks/useInitialHashScroll';
 
 export default function App() {
+  useInitialHashScroll();
+
   return (
     <>
       <ScrollToTop />
