@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 
 import { Icon } from './ui/Icon';
 import { ActionLink } from './ui/ActionLink';
-import { EASE_OUT_EXPO } from '../lib/motion';
+import { EASE_OUT_EXPO, VIEWPORT } from '../lib/motion';
 
 /**
  * Premium developer-style project card.
@@ -41,7 +41,7 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
     <motion.article
       initial={reduce ? false : { opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={VIEWPORT}
       transition={{ duration: 0.6, delay: index * 0.08, ease: EASE_OUT_EXPO }}
       whileHover={reduce ? undefined : { y: -4 }}
       onClick={handleCardClick}

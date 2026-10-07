@@ -7,7 +7,7 @@ import { Section } from '../ui/Section';
 import { SectionHeading } from '../ui/SectionHeading';
 import { RevealGroup, RevealItem } from '../ui/Reveal';
 import { CertificateModal } from '../CertificateModal';
-import { EASE_OUT_EXPO } from '../../lib/motion';
+import { EASE_OUT_EXPO, VIEWPORT } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
 /**
@@ -104,7 +104,7 @@ function CertificateCard({ certificate, index, onView, onDownload }) {
     <motion.article
       initial={reduce ? false : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={VIEWPORT}
       transition={{ duration: 0.5, delay: index * 0.1, ease: EASE_OUT_EXPO }}
       whileHover={reduce ? undefined : { y: -5 }}
       className={cn(

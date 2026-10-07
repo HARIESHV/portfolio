@@ -50,4 +50,14 @@ export const lineReveal = (reduce) => ({
   }),
 });
 
-export const VIEWPORT = { once: true, amount: 0.25 };
+/**
+ * Scroll-reveal viewport contract.
+ *
+ * `amount: 'some'` (any pixel visible) instead of a ratio: a ratio such as 0.25
+ * can never be satisfied by an element taller than the viewport — which is
+ * exactly the case for Services and Projects on mobile and for Projects on
+ * laptop/desktop heights — leaving those sections stuck at `opacity: 0`
+ * forever. The reveal still only fires once the element actually enters the
+ * viewport, so the animation reads the same; it simply cannot strand content.
+ */
+export const VIEWPORT = { once: true, amount: 'some' };

@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
-import { EASE_OUT_EXPO, riseIn, staggerContainer } from '../../lib/motion';
+import { EASE_OUT_EXPO, VIEWPORT, riseIn, staggerContainer } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
 /**
@@ -14,7 +14,7 @@ export function Reveal({ children, delay = 0, y = 20, className, as = 'div' }) {
     <MotionComponent
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={VIEWPORT}
       transition={reduce ? { duration: 0 } : { duration: 0.65, delay, ease: EASE_OUT_EXPO }}
       className={className}
     >
@@ -32,7 +32,7 @@ export function RevealGroup({ children, className }) {
       variants={staggerContainer(reduce)}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={VIEWPORT}
       className={cn(className)}
     >
       {children}
