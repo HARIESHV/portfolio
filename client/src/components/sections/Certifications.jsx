@@ -102,11 +102,8 @@ function CertificateCard({ certificate, index, onView, onDownload }) {
 
   return (
     <motion.article
-      initial={reduce ? false : { opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={VIEWPORT}
-      transition={{ duration: 0.5, delay: index * 0.1, ease: EASE_OUT_EXPO }}
       whileHover={reduce ? undefined : { y: -5 }}
+      transition={reduce ? { duration: 0 } : { duration: 0.3, ease: EASE_OUT_EXPO }}
       className={cn(
         'group relative flex h-full max-w-full min-w-0 flex-col justify-between overflow-hidden rounded-[22px] border border-[#DDE8D8] bg-white p-5 sm:p-7 shadow-soft transition-all duration-300 hover:border-[#C8E6C9] hover:shadow-lift',
       )}
