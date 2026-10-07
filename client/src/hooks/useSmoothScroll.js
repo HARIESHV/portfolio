@@ -11,6 +11,11 @@ export function useSmoothScroll() {
     const element = document.getElementById(targetId);
     if (!element) return;
 
+    if (typeof document !== 'undefined' && document.body.style.overflow === 'hidden') {
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+    }
+
     element.scrollIntoView({
       behavior: prefersReducedMotion ? 'auto' : 'smooth',
       block: 'start',

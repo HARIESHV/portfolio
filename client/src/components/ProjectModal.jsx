@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { Icon } from './ui/Icon';
+import { publicAssetUrl } from '../lib/publicAssetUrl';
 import { ActionLink } from './ui/ActionLink';
 import { Tag } from './ui/Tag';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
@@ -19,12 +21,15 @@ import { EASE_OUT_EXPO } from '../lib/motion';
 export function ProjectModal({ project, onClose }) {
   useBodyScrollLock(Boolean(project));
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <AnimatePresence>
       {project ? (
         <ProjectModalDialog key={project.id} project={project} onClose={onClose} />
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
 
@@ -120,7 +125,7 @@ function ProjectModalDialog({ project, onClose }) {
           <div className="relative overflow-hidden rounded-2xl border border-[#DDE8D8] bg-[#0F1712] shadow-soft">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#172117]">
               <img
-                src={project.image}
+                src={publicAssetUrl(project.image)}
                 alt={project.imageAlt}
                 width={1200}
                 height={675}

@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { Icon } from './ui/Icon';
 import { ActionLink } from './ui/ActionLink';
 import { EASE_OUT_EXPO, VIEWPORT } from '../lib/motion';
+import { publicAssetUrl } from '../lib/publicAssetUrl';
 
 /**
  * Premium developer-style project card.
@@ -54,7 +55,7 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
       {/* 1. Project Preview at the top */}
       <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#E5EAE2] bg-[#121A13]">
         <motion.img
-          src={project.image}
+          src={publicAssetUrl(project.image)}
           alt={project.imageAlt}
           width={800}
           height={500}

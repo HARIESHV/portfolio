@@ -118,6 +118,7 @@
     -webkit-text-size-adjust: 100%;
     width: 100%;
     max-width: 100%;
+    overflow-x: hidden;
     overflow-x: clip;
   }
 
@@ -135,6 +136,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     /* Guards every section against accidental horizontal overflow. */
+    overflow-x: hidden;
     overflow-x: clip;
   }
 

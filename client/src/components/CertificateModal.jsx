@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 import { Icon } from './ui/Icon';
@@ -14,7 +15,9 @@ import { cn } from '../lib/cn';
 export function CertificateModal({ certificate, onClose, onDownload }) {
   useBodyScrollLock(Boolean(certificate));
 
-  return (
+  if (typeof document === 'undefined') return null;
+
+  return createPortal(
     <AnimatePresence>
       {certificate ? (
         <CertificateViewerDialog
@@ -24,7 +27,8 @@ export function CertificateModal({ certificate, onClose, onDownload }) {
           onDownload={onDownload}
         />
       ) : null}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }
 

@@ -14,7 +14,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full max-w-full overflow-x-clip border-t border-[#244b2f] bg-[#2E5D3B] text-white">
+    <footer className="w-full max-w-full overflow-x-hidden overflow-x-clip border-t border-[#244b2f] bg-[#2E5D3B] text-white">
       <div className="container-page py-16 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Identity */}

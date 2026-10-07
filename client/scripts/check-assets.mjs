@@ -12,6 +12,7 @@
 import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { projects } from '../src/data/projects.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const clientRoot = resolve(here, '..');
@@ -52,6 +53,16 @@ const certificatesFound = CERTIFICATES.filter((c) => {
   return existsSync(p) && statSync(p).isFile();
 });
 
+const projectImages = projects.map(({ id, image }) => {
+  const relativePath = String(image ?? '').replace(/^\/+/, '');
+  const absolutePath = resolve(publicDir, relativePath);
+  const exists = absolutePath.startsWith(`${publicDir}/`) &&
+    existsSync(absolutePath) && statSync(absolutePath).isFile();
+
+  return { id, relativePath, exists };
+});
+const missingProjectImages = projectImages.filter(({ exists }) => !exists);
+
 const manifest = {
   profileImage,
   resume,
@@ -67,6 +78,7 @@ const lines = [
   `  profile image : ${profileImage ? `found (${profileImage})` : 'MISSING'}`,
   `  resume        : ${resume ? `found (${resume})` : 'MISSING'}`,
   `  certificates  : ${certificatesFound.length}/${CERTIFICATES.length} found`,
+  `  project images: ${projectImages.length - missingProjectImages.length}/${projectImages.length} found`,
 ];
 
 console.log(lines.join('\n'));
@@ -83,4 +95,12 @@ if (!resume) {
     '\n  Note: no resume found. The download control renders as unavailable.\n' +
       '  Add your PDF at client/public/Hariesh-V-Resume.pdf\n',
   );
+}
+
+if (missingProjectImages.length) {
+  console.error('\n  Missing project images:');
+  for (const { id, relativePath } of missingProjectImages) {
+    console.error(`    ${id}: ${relativePath || '(empty path)'}`);
+  }
+  process.exitCode = 1;
 }

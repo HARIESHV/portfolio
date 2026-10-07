@@ -37,6 +37,38 @@ function siteUrlPlugin(siteUrl) {
   };
 }
 
+const pngProjectImagePaths = new Set([
+  '/images/projects/elearning-platform.svg',
+  '/images/projects/aptitude-learning-platform.svg',
+  '/images/projects/rapid-crisis-response.svg',
+  '/images/projects/enterprise-intelligent-platform.svg',
+]);
+
+function projectImageMimePlugin() {
+  const middleware = (request, response, next) => {
+    const pathname = new URL(request.url ?? '/', 'http://localhost').pathname;
+
+    if (pngProjectImagePaths.has(pathname)) {
+      const setHeader = response.setHeader.bind(response);
+      response.setHeader = (name, value) =>
+        setHeader(name, name.toLowerCase() === 'content-type' ? 'image/png' : value);
+      response.setHeader('Content-Type', 'image/png');
+    }
+
+    next();
+  };
+
+  return {
+    name: 'hariesh-project-image-mime',
+    configureServer(server) {
+      server.middlewares.use(middleware);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(middleware);
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const fileEnv = loadEnv(mode, process.cwd(), '');
 
@@ -48,7 +80,7 @@ export default defineConfig(({ mode }) => {
     process.env.VITE_SITE_URL || fileEnv.VITE_SITE_URL || 'https://hariesh-v.vercel.app';
 
   return {
-    plugins: [react(), tailwindcss(), siteUrlPlugin(siteUrl)],
+    plugins: [react(), tailwindcss(), siteUrlPlugin(siteUrl), projectImageMimePlugin()],
 
     server: {
       port: 5173,

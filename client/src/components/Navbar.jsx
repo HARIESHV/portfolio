@@ -48,8 +48,14 @@ export function Navbar() {
     (event, href) => {
       event.preventDefault();
       setMenuOpen(false);
-      scrollTo(href.replace('#', ''));
-      window.history.replaceState(null, '', href);
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+      }
+      requestAnimationFrame(() => {
+        scrollTo(href.replace('#', ''));
+        window.history.replaceState(null, '', href);
+      });
     },
     [scrollTo],
   );

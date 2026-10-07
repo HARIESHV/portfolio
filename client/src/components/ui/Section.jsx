@@ -39,7 +39,7 @@ export function Section({
       <Component
         id={id}
         aria-labelledby={labelledBy}
-        className={cn('w-full max-w-full overflow-x-clip py-20 sm:py-24 lg:py-28', surfaces[surface] ?? surfaces.paper, className)}
+        className={cn('w-full max-w-full overflow-x-hidden overflow-x-clip py-20 sm:py-24 lg:py-28', surfaces[surface] ?? surfaces.paper, className)}
       >
         {body}
       </Component>
@@ -54,7 +54,7 @@ export function Section({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={VIEWPORT}
       transition={reduce ? { duration: 0 } : { duration: 0.7, ease: EASE_OUT_EXPO }}
-      className={cn('w-full max-w-full overflow-x-clip py-20 sm:py-24 lg:py-28', surfaces[surface] ?? surfaces.paper, className)}
+      className={cn('w-full max-w-full overflow-x-hidden overflow-x-clip py-20 sm:py-24 lg:py-28', surfaces[surface] ?? surfaces.paper, className)}
     >
       {body}
     </MotionComponent>
