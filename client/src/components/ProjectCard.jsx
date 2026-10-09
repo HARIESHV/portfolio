@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { Icon } from './ui/Icon';
@@ -14,19 +14,22 @@ import { publicAssetUrl } from '../lib/publicAssetUrl';
  */
 export function ProjectCard({ project, index = 0, onOpenModal }) {
   const reduce = useReducedMotion();
-  const [imageSrc, setImageSrc] = useState(() => publicAssetUrl(project.image));
+  const [attemptedFallback, setAttemptedFallback] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  useEffect(() => {
-    setImageSrc(publicAssetUrl(project.image));
-    setHasError(false);
-  }, [project.image]);
+  const initialSrc = publicAssetUrl(project.image);
+  let imageSrc = initialSrc;
+  if (attemptedFallback) {
+    if (initialSrc.endsWith('.png')) {
+      imageSrc = initialSrc.replace(/\.png$/, '.svg');
+    } else if (initialSrc.endsWith('.svg')) {
+      imageSrc = initialSrc.replace(/\.svg$/, '.png');
+    }
+  }
 
   const handleImageError = () => {
-    if (imageSrc.endsWith('.png')) {
-      setImageSrc(imageSrc.replace(/\.png$/, '.svg'));
-    } else if (imageSrc.endsWith('.svg')) {
-      setImageSrc(imageSrc.replace(/\.svg$/, '.png'));
+    if (!attemptedFallback) {
+      setAttemptedFallback(true);
     } else {
       setHasError(true);
     }

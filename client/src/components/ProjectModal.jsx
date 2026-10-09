@@ -55,6 +55,20 @@ function ProjectModalDialog({ project, onClose }) {
     ? project.detailedOverview
     : [project.description];
 
+  const [attemptedFallback, setAttemptedFallback] = useState(false);
+  const initialSrc = publicAssetUrl(project.image);
+  const modalImgSrc = attemptedFallback
+    ? initialSrc.endsWith('.png')
+      ? initialSrc.replace(/\.png$/, '.svg')
+      : initialSrc.replace(/\.svg$/, '.png')
+    : initialSrc;
+
+  const handleModalImgError = () => {
+    if (!attemptedFallback) {
+      setAttemptedFallback(true);
+    }
+  };
+
   return (
     <div
       className="fixed inset-0 flex items-center justify-center overflow-hidden p-2 sm:p-4 md:p-6"
@@ -125,10 +139,12 @@ function ProjectModalDialog({ project, onClose }) {
           <div className="relative overflow-hidden rounded-2xl border border-[#DDE8D8] bg-[#0F1712] shadow-soft">
             <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#172117]">
               <img
-                src={publicAssetUrl(project.image)}
+                src={modalImgSrc}
                 alt={project.imageAlt}
                 width={1200}
                 height={675}
+                decoding="async"
+                onError={handleModalImgError}
                 className="h-full w-full object-cover"
               />
               <span
