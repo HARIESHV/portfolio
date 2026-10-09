@@ -68,8 +68,8 @@ export async function connectDatabase() {
 
   connectionPromise = mongoose
     .connect(env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000,
-      connectTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 15000,
+      connectTimeoutMS: 15000,
       socketTimeoutMS: 45000,
       maxPoolSize: 10,
       autoIndex: !isProduction,

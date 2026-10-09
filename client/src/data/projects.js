@@ -74,7 +74,7 @@ export const projects = [
     category: 'Full Stack · TypeScript',
     duration: 'July 2026 – August 2026',
     featured: false,
-    image: '/images/projects/elearning-platform.svg',
+    image: '/images/projects/elearning-platform.png',
     imageAlt:
       'Abstract layered panel composition representing a full-stack learning management system',
     description:
