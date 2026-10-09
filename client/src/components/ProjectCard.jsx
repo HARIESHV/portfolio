@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { Icon } from './ui/Icon';
@@ -13,6 +14,23 @@ import { publicAssetUrl } from '../lib/publicAssetUrl';
  */
 export function ProjectCard({ project, index = 0, onOpenModal }) {
   const reduce = useReducedMotion();
+  const [imageSrc, setImageSrc] = useState(() => publicAssetUrl(project.image));
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    setImageSrc(publicAssetUrl(project.image));
+    setHasError(false);
+  }, [project.image]);
+
+  const handleImageError = () => {
+    if (imageSrc.endsWith('.png')) {
+      setImageSrc(imageSrc.replace(/\.png$/, '.svg'));
+    } else if (imageSrc.endsWith('.svg')) {
+      setImageSrc(imageSrc.replace(/\.svg$/, '.png'));
+    } else {
+      setHasError(true);
+    }
+  };
 
   const handleCardClick = (e) => {
     // If user clicked inside an interactive button or link, do not trigger card click
@@ -54,16 +72,25 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
     >
       {/* 1. Project Preview at the top */}
       <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-[#E5EAE2] bg-[#121A13]">
-        <motion.img
-          src={publicAssetUrl(project.image)}
-          alt={project.imageAlt}
-          width={800}
-          height={500}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-          transition={reduce ? { duration: 0 } : { duration: 0.5, ease: EASE_OUT_EXPO }}
-        />
+        {!hasError ? (
+          <img
+            src={imageSrc}
+            alt={project.imageAlt}
+            width={800}
+            height={500}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchPriority={index === 0 ? 'high' : 'auto'}
+            onError={handleImageError}
+            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-[#172117] p-6 text-center">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#C8E6C9]">
+              {project.name}
+            </span>
+          </div>
+        )}
 
         {/* Subtle green hover highlight ring */}
         <span

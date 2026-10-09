@@ -125,7 +125,7 @@ export const projects = [
     category: 'Full Stack · Python',
     duration: 'May 2025 – February 2026',
     featured: false,
-    image: '/images/projects/aptitude-learning-platform.svg',
+    image: '/images/projects/aptitude-learning-platform.png',
     imageAlt: 'Abstract concentric arc composition representing an aptitude assessment interface',
     description:
       'Developed an Aptitude Learning Platform using Python, HTML, CSS, JavaScript, Render, and Neon Database to provide interactive aptitude tests, performance tracking, and personalized learning experiences.',
@@ -165,7 +165,7 @@ export const projects = [
     category: 'Full Stack · Python',
     duration: 'March 2026 – April 2026',
     featured: false,
-    image: '/images/projects/rapid-crisis-response.svg',
+    image: '/images/projects/rapid-crisis-response.png',
     imageAlt: 'Abstract radar ring composition representing geolocation-based crisis reporting',
     description:
       'Developed a full-stack Rapid Crisis Response web application using HTML, CSS, JavaScript, and Python (Flask/Django) with geolocation-based emergency reporting and deployed it on Render for real-time accessibility.',
@@ -212,7 +212,7 @@ export const projects = [
     category: 'Generative AI • Full Stack Development • Enterprise Intelligence',
     duration: 'August 2026–September 2026',
     featured: false,
-    image: '/images/projects/enterprise-intelligent-platform.svg',
+    image: '/images/projects/enterprise-intelligent-platform.png',
     imageAlt:
       'Abstract neural network and knowledge graph visualization representing enterprise AI platform',
     description:

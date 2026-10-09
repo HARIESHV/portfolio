@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { certificates } from '../../data/certificates';
@@ -6,7 +6,6 @@ import { Icon } from '../ui/Icon';
 import { Section } from '../ui/Section';
 import { SectionHeading } from '../ui/SectionHeading';
 import { RevealGroup, RevealItem } from '../ui/Reveal';
-import { CertificateModal } from '../CertificateModal';
 import { EASE_OUT_EXPO, VIEWPORT } from '../../lib/motion';
 import { cn } from '../../lib/cn';
 
@@ -44,16 +43,6 @@ async function downloadCertificatePdf(certificate) {
 }
 
 export function Certifications() {
-  const [selectedCertificate, setSelectedCertificate] = useState(null);
-
-  const handleView = useCallback((cert) => {
-    setSelectedCertificate(cert);
-  }, []);
-
-  const handleCloseModal = useCallback(() => {
-    setSelectedCertificate(null);
-  }, []);
-
   const handleDownload = useCallback((cert) => {
     downloadCertificatePdf(cert);
   }, []);
@@ -69,34 +58,26 @@ export function Certifications() {
         />
       </div>
 
-      {/* Responsive layout: Mobile 1 card, Tablet 2 cards, Desktop 3 cards */}
-      <RevealGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <RevealGroup className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {certificates.map((certificate) => (
           <RevealItem key={certificate.id}>
             <CertificateCard
               certificate={certificate}
-              onView={handleView}
               onDownload={handleDownload}
             />
           </RevealItem>
         ))}
       </RevealGroup>
 
-      {/* Interactive PDF Viewer Modal */}
-      <CertificateModal
-        certificate={selectedCertificate}
-        onClose={handleCloseModal}
-        onDownload={handleDownload}
-      />
     </Section>
   );
 }
 
 /**
  * Individual Certificate Card.
- * Structure: Certificate → Details → View → Download
+ * Structure: Certificate preview → Details → Download
  */
-function CertificateCard({ certificate, onView, onDownload }) {
+function CertificateCard({ certificate, onDownload }) {
   const reduce = useReducedMotion();
 
   return (
@@ -107,6 +88,20 @@ function CertificateCard({ certificate, onView, onDownload }) {
         'group relative flex h-full max-w-full min-w-0 flex-col justify-between overflow-hidden rounded-[22px] border border-[#DDE8D8] bg-white p-5 sm:p-7 shadow-soft transition-all duration-300 hover:border-[#C8E6C9] hover:shadow-lift',
       )}
     >
+      <a
+        href={encodeURI(certificate.file)}
+        aria-label={`View ${certificate.title} PDF`}
+        className="mb-5 block cursor-pointer rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2E5D3B]"
+      >
+        <img
+          src={certificate.preview}
+          alt={`Preview of ${certificate.title} certificate`}
+          loading="lazy"
+          decoding="async"
+          className="block h-auto w-full rounded-xl border border-[#DDE8D8] object-contain transition-colors duration-200 hover:border-[#C8E6C9]"
+        />
+      </a>
+
       {/* 1. Certificate Identity & Issuer Header */}
       <div>
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -182,31 +177,17 @@ function CertificateCard({ certificate, onView, onDownload }) {
         )}
       </div>
 
-      {/* 3 & 4. Actions: View Certificate & Download Certificate */}
+      {/* Download Certificate */}
       <div className="relative mt-7 border-t border-[#DDE8D8] pt-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2 gap-2.5">
-          {/* View Certificate Button */}
-          <button
-            type="button"
-            onClick={() => onView(certificate)}
-            aria-label={`View ${certificate.title} certificate PDF`}
-            className="inline-flex items-center justify-center gap-2 rounded-control bg-[#2E5D3B] px-4 py-2.5 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:bg-[#244b2f] hover:shadow-lift cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2E5D3B]"
-          >
-            <Icon name="Eye" size={16} />
-            <span>View Certificate</span>
-          </button>
-
-          {/* Download Certificate Button */}
-          <button
-            type="button"
-            onClick={() => onDownload(certificate)}
-            aria-label={`Download ${certificate.title} certificate PDF`}
-            className="inline-flex items-center justify-center gap-2 rounded-control border border-[#DDE8D8] bg-white px-4 py-2.5 text-sm font-semibold text-[#2E5D3B] shadow-soft transition-all duration-200 hover:border-[#2E5D3B] hover:bg-[#E8F5E9] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2E5D3B]"
-          >
-            <Icon name="Download" size={16} />
-            <span>Download</span>
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => onDownload(certificate)}
+          aria-label={`Download ${certificate.title} certificate PDF`}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-control border border-[#DDE8D8] bg-white px-4 py-2.5 text-sm font-semibold text-[#2E5D3B] shadow-soft transition-all duration-200 hover:border-[#2E5D3B] hover:bg-[#E8F5E9] cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2E5D3B]"
+        >
+          <Icon name="Download" size={16} />
+          <span>Download</span>
+        </button>
       </div>
     </motion.article>
   );

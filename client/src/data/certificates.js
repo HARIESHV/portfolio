@@ -14,6 +14,7 @@ export const certificates = [
     description:
       'Comprehensive masterclass covering end-to-end full stack architecture, responsive client-side development, server-side REST APIs, database integration, and scalable deployment workflows.',
     file: '/certificates/Novitech-web.pdf',
+    preview: '/certificates/previews/full-stack-development.jpg',
     downloadName: 'Hariesh-V-NoviTech-Full-Stack-Development-Certificate.pdf',
     icon: 'Layers',
     skills: ['Full Stack Architecture', 'REST APIs', 'Database Integration', 'React.js & Node.js'],
@@ -30,6 +31,7 @@ export const certificates = [
     description:
       'In-depth technical course exploring modern Generative AI, Large Language Models (LLMs), prompt engineering, generative multimodal workflows, and AI integration into production software solutions.',
     file: '/certificates/Rinex-Gen AI.pdf',
+    preview: '/certificates/previews/generative-ai.jpg',
     downloadName: 'Hariesh-V-Rinex-Generative-AI-Certificate.pdf',
     icon: 'Sparkles',
     skills: ['Generative AI', 'Large Language Models', 'Prompt Engineering', 'AI System Integration'],
@@ -46,6 +48,7 @@ export const certificates = [
     description:
       'Focused technical curriculum advancing responsive interface engineering, modern JavaScript architecture, component-driven UI design, state management, and web performance optimization.',
     file: '/certificates/Rinex-web.pdf',
+    preview: '/certificates/previews/web-development.jpg',
     downloadName: 'Hariesh-V-Rinex-Web-Development-Certificate.pdf',
     icon: 'Code',
     skills: ['Modern JavaScript', 'Responsive UI Design', 'Frontend Architecture', 'Web Performance'],
