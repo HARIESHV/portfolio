@@ -63,4 +63,55 @@ export const certificatesWithAvailability = certificates.map((certificate) => ({
   available: Boolean(certificate.file || certificate.pdfUrl),
 }));
 
+/**
+ * Organization-level metadata.
+ *
+ * A certificate-issuing organization can own several courses. `logo` is the
+ * thumbnail shown on the organization card; when absent the card falls back to
+ * the first certificate's preview image.
+ */
+const ORGANIZATION_META = {
+  Rinex: {
+    id: 'rinex',
+    name: 'Rinex',
+    logo: '/certificates/rinex.jpg',
+    icon: 'Building2',
+  },
+  'NoviTech R&D Private Limited': {
+    id: 'novitech',
+    name: 'NoviTech R&D Private Limited',
+    logo: null,
+    icon: 'Layers',
+  },
+};
+
+/**
+ * Certificates grouped by their issuing organization.
+ *
+ * Every organization appears exactly once, holding all of its courses so the
+ * Certificates section renders one card per organization (not per course).
+ */
+export const certificateOrganizations = (() => {
+  const groups = new Map();
+
+  for (const certificate of certificates) {
+    const key = certificate.organization;
+    if (!groups.has(key)) {
+      const meta = ORGANIZATION_META[key] ?? {
+        id: key.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+        name: key,
+        logo: null,
+        icon: 'Award',
+      };
+      groups.set(key, { ...meta, certificates: [] });
+    }
+    groups.get(key).certificates.push(certificate);
+  }
+
+  return Array.from(groups.values()).map((group) => ({
+    ...group,
+    thumbnail: group.logo ?? group.certificates[0]?.preview ?? null,
+  }));
+})();
+
 export default certificates;
