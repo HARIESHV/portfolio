@@ -97,7 +97,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
     <div
       className={cn(
         'fixed inset-0 flex items-center justify-center overflow-hidden',
-        isFullscreen ? 'p-0' : 'p-2 sm:p-4 md:p-6',
+        isFullscreen ? 'p-0' : 'p-0 sm:p-4 md:p-6',
       )}
       style={{ zIndex: Z.modalBackdrop }}
     >
@@ -129,7 +129,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
           'relative flex flex-col overflow-hidden bg-white shadow-lift border border-[#DDE8D8]',
           isFullscreen
             ? 'h-full w-full rounded-none'
-            : 'h-[96dvh] sm:h-[90vh] w-full max-w-5xl rounded-[18px] sm:rounded-[24px]',
+            : 'h-[100dvh] sm:h-[90dvh] w-full max-w-5xl rounded-none sm:rounded-[24px]',
         )}
         style={{ zIndex: Z.modalContent }}
       >
@@ -220,18 +220,6 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
               <Icon name={isFullscreen ? 'Minimize2' : 'Maximize2'} size={15} />
             </button>
 
-            {/* Open Original PDF in New Tab */}
-            <a
-              href={encodedFileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open original PDF in new tab"
-              title="Open PDF in new tab"
-              className="flex h-9 w-9 items-center justify-center rounded-control border border-[#DDE8D8] bg-white text-[#2E5D3B] transition-colors hover:bg-[#E8F5E9] cursor-pointer"
-            >
-              <Icon name="ExternalLink" size={15} />
-            </a>
-
             {/* Download Certificate */}
             <button
               type="button"
@@ -258,7 +246,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
         </div>
 
         {/* Viewer Stage */}
-        <div className="relative flex-1 overflow-auto bg-[#1a251a] p-2 sm:p-4 md:p-6 flex items-center justify-center">
+        <div className="relative min-h-0 flex-1 overflow-auto bg-[#1a251a] p-2 sm:p-4 md:p-6 flex items-center justify-center">
           {/* Spinner while iframe loads */}
           {isLoading && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#1a251a] text-white">
@@ -282,7 +270,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
               src={`${encodedFileUrl}#view=FitH&toolbar=0&navpanes=0`}
               title={certificate.title}
               onLoad={() => setIsLoading(false)}
-              className="h-full w-full min-h-[340px] sm:min-h-[580px] rounded-lg border-0 bg-white shadow-2xl"
+              className="h-full w-full min-h-0 rounded-lg border-0 bg-white shadow-2xl"
             />
           </div>
         </div>
@@ -296,16 +284,33 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
             <span className="hidden sm:inline">{certificate.date}</span>
           </div>
 
-          <div className="flex shrink-0 items-center gap-3">
-            <a
-              href={encodedFileUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-[#2E5D3B] hover:underline"
+          <div className="flex shrink-0 items-center gap-1 rounded-control border border-[#DDE8D8] bg-white p-0.5 sm:hidden">
+            <button
+              type="button"
+              onClick={handleZoomOut}
+              disabled={zoom <= 0.6}
+              aria-label="Zoom out"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-[#425846] transition-colors hover:bg-[#E8F5E9] disabled:opacity-30"
             >
-              <span>Open direct in browser</span>
-              <Icon name="ExternalLink" size={12} />
-            </a>
+              <Icon name="ZoomOut" size={15} />
+            </button>
+            <button
+              type="button"
+              onClick={handleResetZoom}
+              aria-label="Reset zoom"
+              className="min-w-10 px-1 font-mono text-xs font-semibold text-[#2E5D3B]"
+            >
+              {Math.round(zoom * 100)}%
+            </button>
+            <button
+              type="button"
+              onClick={handleZoomIn}
+              disabled={zoom >= 2}
+              aria-label="Zoom in"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-[#425846] transition-colors hover:bg-[#E8F5E9] disabled:opacity-30"
+            >
+              <Icon name="ZoomIn" size={15} />
+            </button>
           </div>
         </div>
       </motion.div>

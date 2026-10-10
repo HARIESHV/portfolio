@@ -1,7 +1,8 @@
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
 import { certificates } from '../../data/certificates';
+import { CertificateModal } from '../CertificateModal';
 import { Icon } from '../ui/Icon';
 import { Section } from '../ui/Section';
 import { SectionHeading } from '../ui/SectionHeading';
@@ -43,6 +44,7 @@ async function downloadCertificatePdf(certificate) {
 }
 
 export function Certifications() {
+  const [activeCertificate, setActiveCertificate] = useState(null);
   const handleDownload = useCallback((cert) => {
     downloadCertificatePdf(cert);
   }, []);
@@ -63,12 +65,18 @@ export function Certifications() {
           <RevealItem key={certificate.id}>
             <CertificateCard
               certificate={certificate}
+              onView={setActiveCertificate}
               onDownload={handleDownload}
             />
           </RevealItem>
         ))}
       </RevealGroup>
 
+      <CertificateModal
+        certificate={activeCertificate}
+        onClose={() => setActiveCertificate(null)}
+        onDownload={handleDownload}
+      />
     </Section>
   );
 }
@@ -77,7 +85,7 @@ export function Certifications() {
  * Individual Certificate Card.
  * Structure: Certificate preview → Details → Download
  */
-function CertificateCard({ certificate, onDownload }) {
+function CertificateCard({ certificate, onView, onDownload }) {
   const reduce = useReducedMotion();
 
   return (
@@ -88,10 +96,11 @@ function CertificateCard({ certificate, onDownload }) {
         'group relative flex h-full max-w-full min-w-0 flex-col justify-between overflow-hidden rounded-[22px] border border-[#DDE8D8] bg-white p-5 sm:p-7 shadow-soft transition-all duration-300 hover:border-[#C8E6C9] hover:shadow-lift',
       )}
     >
-      <a
-        href={encodeURI(certificate.file)}
+      <button
+        type="button"
+        onClick={() => onView(certificate)}
         aria-label={`View ${certificate.title} PDF`}
-        className="mb-5 block cursor-pointer rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2E5D3B]"
+        className="mb-5 block w-full cursor-pointer rounded-xl text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2E5D3B]"
       >
         <img
           src={certificate.preview}
@@ -100,7 +109,7 @@ function CertificateCard({ certificate, onDownload }) {
           decoding="async"
           className="block h-auto w-full rounded-xl border border-[#DDE8D8] object-contain transition-colors duration-200 hover:border-[#C8E6C9]"
         />
-      </a>
+      </button>
 
       {/* 1. Certificate Identity & Issuer Header */}
       <div>
