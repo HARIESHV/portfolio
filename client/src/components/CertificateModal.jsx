@@ -2,9 +2,11 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
+import { PdfCanvasViewer } from './PdfCanvasViewer';
 import { Icon } from './ui/Icon';
 import { useBodyScrollLock } from '../hooks/useBodyScrollLock';
 import { useFocusTrap } from '../hooks/useFocusTrap';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { Z } from '../lib/constants';
 import { EASE_OUT_EXPO } from '../lib/motion';
 import { cn } from '../lib/cn';
@@ -52,6 +54,22 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Android Chrome does not render PDFs inside iframes (dark screen + "Open"
+  // button). On narrow viewports — and on all mobile browsers — the pages are
+  // drawn inline with PDF.js instead, so the certificate stays visible.
+  const isSmallViewport = useMediaQuery('(max-width: 639px)');
+  const isMobileBrowser =
+    typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  const useInlineCanvasPdf = isSmallViewport || isMobileBrowser;
+
+  const handlePdfReady = useCallback(() => {
+    setIsLoading(false);
+  }, []);
+
+  const handlePdfError = useCallback(() => {
+    setIsLoading(false);
+  }, []);
+
   const close = useCallback(() => {
     onClose();
   }, [onClose]);
@@ -97,7 +115,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
     <div
       className={cn(
         'fixed inset-0 flex items-center justify-center overflow-hidden',
-        isFullscreen ? 'p-0' : 'p-0 sm:p-4 md:p-6',
+        isFullscreen ? 'p-0' : 'p-2 sm:p-4 md:p-6',
       )}
       style={{ zIndex: Z.modalBackdrop }}
     >
@@ -129,7 +147,7 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
           'relative flex flex-col overflow-hidden bg-white shadow-lift border border-[#DDE8D8]',
           isFullscreen
             ? 'h-full w-full rounded-none'
-            : 'h-[100dvh] sm:h-[90dvh] w-full max-w-5xl rounded-none sm:rounded-[24px]',
+            : 'h-[94dvh] sm:h-[90dvh] w-full max-w-5xl rounded-[20px] sm:rounded-[24px]',
         )}
         style={{ zIndex: Z.modalContent }}
       >
@@ -246,8 +264,8 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
         </div>
 
         {/* Viewer Stage */}
-        <div className="relative min-h-0 flex-1 overflow-auto bg-[#1a251a] p-2 sm:p-4 md:p-6 flex items-center justify-center">
-          {/* Spinner while iframe loads */}
+        <div className="relative min-h-0 flex-1 overflow-auto overscroll-contain bg-[#1a251a] p-2 sm:p-4 md:p-6 flex">
+          {/* Spinner while the certificate renders */}
           {isLoading && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#1a251a] text-white">
               <Icon name="LoaderCircle" size={32} className="animate-spin text-[#C8E6C9]" />
@@ -255,24 +273,36 @@ function CertificateViewerDialog({ certificate, onClose, onDownload }) {
             </div>
           )}
 
-          {/* Scalable PDF container */}
-          <div
-            className="transition-transform duration-200 ease-out flex items-center justify-center"
-            style={{
-              transform: `scale(${zoom})`,
-              transformOrigin: 'top center',
-              width: zoom > 1 ? `${zoom * 100}%` : '100%',
-              height: zoom > 1 ? `${zoom * 100}%` : '100%',
-              minHeight: '100%',
-            }}
-          >
-            <iframe
-              src={`${encodedFileUrl}#view=FitH&toolbar=0&navpanes=0`}
+          {/* Mobile/inline PDF.js renderer (canvas pages) */}
+          {useInlineCanvasPdf ? (
+            <PdfCanvasViewer
+              src={encodedFileUrl}
+              preview={certificate.preview}
               title={certificate.title}
-              onLoad={() => setIsLoading(false)}
-              className="h-full w-full min-h-0 rounded-lg border-0 bg-white shadow-2xl"
+              zoom={zoom}
+              onReady={handlePdfReady}
+              onError={handlePdfError}
             />
-          </div>
+          ) : (
+            /* Scalable PDF iframe (desktop / laptop) */
+            <div
+              className="m-auto transition-transform duration-200 ease-out flex items-center justify-center"
+              style={{
+                transform: `scale(${zoom})`,
+                transformOrigin: 'top center',
+                width: zoom > 1 ? `${zoom * 100}%` : '100%',
+                height: zoom > 1 ? `${zoom * 100}%` : '100%',
+                minHeight: '100%',
+              }}
+            >
+              <iframe
+                src={`${encodedFileUrl}#view=FitH&toolbar=0&navpanes=0`}
+                title={certificate.title}
+                onLoad={() => setIsLoading(false)}
+                className="h-full w-full min-h-0 rounded-lg border-0 bg-white shadow-2xl"
+              />
+            </div>
+          )}
         </div>
 
         {/* Bottom Mobile Bar / Info Footer */}

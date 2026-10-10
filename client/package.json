@@ -16,6 +16,7 @@
     "@icons-pack/react-simple-icons": "^13.15.1",
     "framer-motion": "^12.23.12",
     "lucide-react": "^0.548.0",
+    "pdfjs-dist": "^6.4.299",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
