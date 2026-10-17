@@ -80,7 +80,7 @@ export function Navbar() {
           onClick={(event) => handleNavigate(event, '#home')}
           className="group flex shrink-0 items-center rounded-control py-1 pr-2"
         >
-          <span className="text-[1.0625rem] font-bold tracking-[-0.02em] text-[#2E5D3B]">
+          <span className="text-[1.1875rem] font-bold tracking-[0.04em] text-[#2E5D3B]">
             {profile.wordmark}
           </span>
         </a>
@@ -97,10 +97,10 @@ export function Navbar() {
                   onClick={(event) => handleNavigate(event, item.href)}
                   aria-current={isActive ? 'true' : undefined}
                   className={cn(
-                    'relative rounded-full px-3 py-1.5 text-[0.8125rem] font-medium transition-all duration-200',
+                    'relative rounded-full px-3.5 py-1.5 text-[0.9375rem] font-medium tracking-[0.02em] transition-all duration-200',
                     isActive
                       ? 'bg-[#C8E6C9] text-[#2E5D3B] font-semibold shadow-[0_0_12px_rgba(200,230,201,0.7)]'
-                      : 'text-[#2E5D3B]/80 hover:bg-[#E8F5E9] hover:text-[#2E5D3B]',
+                      : 'text-[#2E5D3B]/85 hover:bg-[#E8F5E9] hover:text-[#2E5D3B]',
                   )}
                 >
                   {item.label}
@@ -204,7 +204,7 @@ function MobileMenu({ id, isOpen, panelRef, activeId, onNavigate, onClose }) {
                       : { duration: 0.3, delay: 0.04 * index, ease: EASE_OUT_EXPO }
                   }
                   className={cn(
-                    'flex items-center justify-between rounded-control px-4 py-3 text-base font-medium transition-colors duration-200',
+                    'flex items-center justify-between rounded-control px-4 py-3 text-lg font-medium tracking-[0.01em] transition-colors duration-200',
                     isActive
                       ? 'bg-[#C8E6C9] text-[#2E5D3B] font-semibold'
                       : 'text-[#2E5D3B] hover:bg-white',

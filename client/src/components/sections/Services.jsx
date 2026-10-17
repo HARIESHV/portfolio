@@ -133,7 +133,7 @@ function ServiceCard({ service }) {
         >
           {/* Card header with number and icon */}
           <div className="flex items-center justify-between border-b border-black/5 pb-5">
-            <span className="font-mono text-sm font-bold tracking-[0.16em] text-[#2E5D3B]">
+            <span className="text-base font-bold tracking-[0.12em] text-[#2E5D3B]">
               {service.number}
             </span>
             <span
@@ -147,24 +147,24 @@ function ServiceCard({ service }) {
           </div>
 
           {/* Title */}
-          <h3 className="mt-5 text-xl font-bold leading-tight tracking-[-0.025em] text-[#2E5D3B] sm:text-2xl break-words">
+          <h3 className="mt-5 text-xl font-bold leading-[1.3] tracking-normal text-[#2E5D3B] sm:text-2xl break-words">
             {service.title}
           </h3>
 
           {/* Description */}
-          <p className="mt-3 min-h-[4.5rem] text-sm leading-relaxed text-[#425846] sm:text-[0.9375rem] break-words">
+          <p className="mt-3 min-h-[4.5rem] text-[0.9375rem] leading-relaxed text-[#425846] sm:text-base break-words">
             {service.description}
           </p>
 
           {/* Technologies */}
-          <h4 className="mt-6 font-mono text-[0.625rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
+          <h4 className="mt-6 text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
             Technologies
           </h4>
           <ul className="mt-3 flex flex-wrap gap-1.5">
             {service.technologies.map((tech) => (
               <li
                 key={tech}
-                className="rounded-control border border-[#DDE8D8] bg-white/90 px-2.5 py-1 font-mono text-[0.6875rem] font-medium text-[#172117] shadow-2xs break-words"
+                className="rounded-control border border-[#DDE8D8] bg-white/90 px-3 py-1 text-[0.75rem] font-medium text-[#172117] shadow-2xs break-words"
               >
                 {tech}
               </li>
@@ -172,14 +172,14 @@ function ServiceCard({ service }) {
           </ul>
 
           {/* Features / Capabilities */}
-          <h4 className="mt-6 font-mono text-[0.625rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
+          <h4 className="mt-6 text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
             Key Capabilities
           </h4>
           <ul className="mt-3 grid gap-x-3 gap-y-2 grid-cols-1 sm:grid-cols-2 md:grid-cols-1 xl:grid-cols-2">
             {service.features.map((feature) => (
               <li
                 key={feature}
-                className="flex min-w-0 items-start gap-2 text-[0.8125rem] font-medium leading-snug text-[#172117]"
+                className="flex min-w-0 items-start gap-2 text-[0.875rem] font-medium leading-snug text-[#172117]"
               >
                 <Icon name="Check" size={14} className="mt-0.5 shrink-0 text-[#2E5D3B]" />
                 <span className="min-w-0 flex-1 break-words">{feature}</span>
@@ -210,7 +210,7 @@ export function Services() {
             lede="From responsive user interfaces and robust APIs to generative AI workflows and full-stack solutions."
           />
         </div>
-        <p className="max-w-[32ch] border-t border-[#DDE8D8] pt-4 font-mono text-xs font-semibold leading-relaxed text-[#2E5D3B] lg:col-span-4 lg:justify-self-end">
+        <p className="max-w-[32ch] border-t border-[#DDE8D8] pt-4 text-xs font-semibold tracking-wider leading-relaxed text-[#2E5D3B] lg:col-span-4 lg:justify-self-end">
           FULL STACK / GENERATIVE AI / ARCHITECTURE
         </p>
       </div>

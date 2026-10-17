@@ -12,7 +12,7 @@ import { cn } from './cn';
  * Cards/surfaces use 16–24px (1.25rem = 20px).
  */
 const BASE =
-  'inline-flex items-center justify-center gap-2 rounded-control font-medium ' +
+  'inline-flex items-center justify-center gap-2 rounded-control font-semibold tracking-wide ' +
   'transition-[background-color,background-image,color,border-color,box-shadow,filter,transform] duration-200 ' +
   'ease-[cubic-bezier(0.16,1,0.3,1)] active:translate-y-px ' +
   'disabled:pointer-events-none disabled:opacity-45 whitespace-nowrap cursor-pointer';
@@ -34,9 +34,9 @@ const VARIANTS = {
 };
 
 const SIZES = {
-  sm: 'h-9 px-4 text-[0.8125rem]',
-  md: 'h-11 px-6 text-sm',
-  lg: 'h-12 px-7 text-[0.9375rem]',
+  sm: 'h-9 px-4 text-sm',
+  md: 'h-11 px-6 text-[0.9375rem]',
+  lg: 'h-12 px-7 text-base',
 };
 
 /**

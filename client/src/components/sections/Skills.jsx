@@ -135,7 +135,7 @@ function TechPill({ technology }) {
       )}
     >
       <Glyph aria-hidden="true" className="shrink-0 text-[#2E5D3B]" size={17} />
-      <span className="whitespace-nowrap font-mono text-[0.75rem] font-semibold tracking-[0.02em] text-[#2E5D3B] sm:text-sm">
+      <span className="whitespace-nowrap text-[0.875rem] font-semibold tracking-[0.02em] text-[#2E5D3B] sm:text-[0.9375rem]">
         {technology.name}
       </span>
     </span>
@@ -199,7 +199,7 @@ export function Skills() {
             lede="Every technology behind the work: interface engineering, server systems, generative AI pipelines, and the cloud tooling that ships them."
           />
         </div>
-        <p className="max-w-[32ch] border-t border-[#DDE8D8] pt-4 font-mono text-xs font-semibold leading-relaxed text-[#2E5D3B] lg:col-span-4 lg:justify-self-end">
+        <p className="max-w-[32ch] border-t border-[#DDE8D8] pt-4 text-xs font-semibold tracking-wider leading-relaxed text-[#2E5D3B] lg:col-span-4 lg:justify-self-end">
           ALL TECHNOLOGIES AT A GLANCE
         </p>
       </div>

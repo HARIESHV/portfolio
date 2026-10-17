@@ -109,11 +109,11 @@ function ProjectModalDialog({ project, onClose }) {
             </span>
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-block max-w-full truncate rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2.5 py-0.5 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B]">
+                <span className="inline-block max-w-full truncate rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2.5 py-0.5 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B]">
                   {project.category}
                 </span>
                 {project.duration ? (
-                  <span className="hidden font-mono text-[0.6875rem] text-[#6c8471] sm:inline-flex items-center gap-1">
+                  <span className="hidden text-[0.75rem] text-[#6c8471] sm:inline-flex items-center gap-1">
                     <Icon name="Calendar" size={12} className="text-[#2E5D3B]" />
                     {project.duration}
                   </span>
@@ -152,7 +152,7 @@ function ProjectModalDialog({ project, onClose }) {
                 className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
               />
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white/90">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 font-mono text-[0.6875rem] backdrop-blur-md">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 px-3 py-1 text-[0.75rem] backdrop-blur-md">
                   <Icon name="Layers" size={12} className="text-[#C8E6C9]" />
                   Interactive System Dashboard Preview
                 </span>
@@ -161,7 +161,7 @@ function ProjectModalDialog({ project, onClose }) {
                     href={project.links.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden sm:inline-flex items-center gap-1 font-mono text-[0.6875rem] text-[#C8E6C9] hover:underline"
+                    className="hidden sm:inline-flex items-center gap-1 text-[0.75rem] text-[#C8E6C9] hover:underline"
                   >
                     <span>View Repository</span>
                     <Icon name="ExternalLink" size={11} />
@@ -173,7 +173,7 @@ function ProjectModalDialog({ project, onClose }) {
 
           {/* Project Title & Metadata */}
           <div>
-            <div className="flex flex-wrap items-center gap-2.5 font-mono text-[0.72rem] text-[#6c8471]">
+            <div className="flex flex-wrap items-center gap-2.5 text-xs sm:text-sm text-[#6c8471]">
               <span className="font-semibold text-[#2E5D3B]">Full Stack Specification</span>
               {project.duration ? (
                 <>
@@ -187,7 +187,7 @@ function ProjectModalDialog({ project, onClose }) {
             </div>
             <h2
               id="project-modal-title"
-              className="mt-2 text-xl sm:text-3xl font-bold tracking-tight text-[#2E5D3B] break-words"
+              className="mt-2 text-[clamp(1.35rem,1.2rem+0.6vw,2rem)] font-bold leading-[1.25] tracking-normal text-[#2E5D3B] break-words"
             >
               {project.name}
             </h2>
@@ -195,10 +195,10 @@ function ProjectModalDialog({ project, onClose }) {
 
           {/* 1. Project Overview */}
           <div className="rounded-2xl border border-[#DDE8D8] bg-[#FAFDF7] p-5 sm:p-6">
-            <h3 className="font-mono text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
+            <h3 className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
               Project Overview
             </h3>
-            <div className="mt-3.5 space-y-3.5 text-[0.9375rem] leading-relaxed text-[#2C3E30]">
+            <div className="mt-3.5 space-y-3.5 text-base leading-relaxed text-[#2C3E30]">
               {overviewParagraphs.map((paragraph, idx) => (
                 <p key={idx} className="text-pretty">
                   {paragraph}
@@ -214,11 +214,11 @@ function ProjectModalDialog({ project, onClose }) {
                 <div className="rounded-2xl border border-[#F2E8A5] bg-[#FFFBEA] p-5 sm:p-6">
                   <div className="flex items-center gap-2 text-[#7A5A0A]">
                     <Icon name="AlertCircle" size={16} className="shrink-0 text-[#B27B00]" />
-                    <h3 className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.14em]">
+                    <h3 className="text-[0.8125rem] font-bold uppercase tracking-[0.12em]">
                       Problem Statement
                     </h3>
                   </div>
-                  <p className="mt-3 text-[0.875rem] leading-relaxed text-[#5C4505]">
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#5C4505]">
                     {project.problem}
                   </p>
                 </div>
@@ -228,11 +228,11 @@ function ProjectModalDialog({ project, onClose }) {
                 <div className="rounded-2xl border border-[#C8E6C9] bg-[#E8F5E9] p-5 sm:p-6">
                   <div className="flex items-center gap-2 text-[#2E5D3B]">
                     <Icon name="CheckCircle2" size={16} className="shrink-0 text-[#2E5D3B]" />
-                    <h3 className="font-mono text-[0.72rem] font-bold uppercase tracking-[0.14em]">
+                    <h3 className="text-[0.8125rem] font-bold uppercase tracking-[0.12em]">
                       The Solution
                     </h3>
                   </div>
-                  <p className="mt-3 text-[0.875rem] leading-relaxed text-[#234B2F]">
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#234B2F]">
                     {project.solution}
                   </p>
                 </div>
@@ -244,10 +244,10 @@ function ProjectModalDialog({ project, onClose }) {
           {project.features && project.features.length > 0 && (
             <div className="rounded-2xl border border-[#DDE8D8] bg-white p-5 sm:p-6 shadow-2xs">
               <div className="flex items-center justify-between gap-2 border-b border-[#DDE8D8] pb-3">
-                <h3 className="font-mono text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
+                <h3 className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
                   Key System Features ({project.features.length})
                 </h3>
-                <span className="font-mono text-[0.6875rem] text-[#6c8471]">
+                <span className="text-xs text-[#6c8471]">
                   Verified Implementations
                 </span>
               </div>
@@ -260,7 +260,7 @@ function ProjectModalDialog({ project, onClose }) {
                     <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#E8F5E9] text-[#2E5D3B]">
                       <Icon name="Check" size={11} strokeWidth={2.5} />
                     </span>
-                    <span className="text-[0.84rem] font-medium leading-snug text-[#172117]">
+                    <span className="text-[0.9375rem] font-medium leading-snug text-[#172117]">
                       {feature}
                     </span>
                   </li>
@@ -272,13 +272,13 @@ function ProjectModalDialog({ project, onClose }) {
           {/* 5. Technology Stack */}
           {project.technologies && project.technologies.length > 0 && (
             <div className="rounded-2xl border border-[#DDE8D8] bg-[#FAFDF7] p-5 sm:p-6">
-              <h3 className="font-mono text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
+              <h3 className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
                 Technology Stack & Tooling
               </h3>
               <ul className="mt-3.5 flex flex-wrap gap-2">
                 {project.technologies.map((tech) => (
                   <li key={tech}>
-                    <Tag tone="green" className="text-[0.75rem] px-3 py-1 font-medium">
+                    <Tag tone="green" className="text-[0.8125rem] px-3 py-1 font-medium">
                       {tech}
                     </Tag>
                   </li>
@@ -292,11 +292,11 @@ function ProjectModalDialog({ project, onClose }) {
             <div className="rounded-2xl border border-[#DDE8D8] bg-white p-5 sm:p-6 shadow-2xs">
               <div className="flex items-center gap-2 border-b border-[#DDE8D8] pb-3">
                 <Icon name="Layers" size={16} className="text-[#2E5D3B]" />
-                <h3 className="font-mono text-[0.75rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
+                <h3 className="text-[0.8125rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
                   System Architecture
                 </h3>
               </div>
-              <p className="mt-3.5 text-[0.875rem] leading-relaxed text-[#425846]">
+              <p className="mt-3.5 text-[0.9375rem] leading-relaxed text-[#425846]">
                 {project.architecture}
               </p>
             </div>
@@ -336,7 +336,7 @@ function ProjectModalDialog({ project, onClose }) {
           <button
             type="button"
             onClick={close}
-            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-control border border-[#DDE8D8] bg-white px-4 text-xs font-semibold text-[#2E5D3B] transition-colors duration-200 hover:bg-[#E8F5E9] cursor-pointer w-full sm:w-auto"
+            className="inline-flex h-9 items-center justify-center gap-1.5 rounded-control border border-[#DDE8D8] bg-white px-4 text-sm font-semibold text-[#2E5D3B] transition-colors duration-200 hover:bg-[#E8F5E9] cursor-pointer w-full sm:w-auto"
           >
             Close
           </button>

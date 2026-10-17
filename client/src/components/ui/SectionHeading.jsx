@@ -41,14 +41,14 @@ export function SectionHeading({
       />
 
       {eyebrow ? (
-        <p className="mb-4 inline-flex items-center gap-2 rounded-control border border-[#C8E6C9] bg-[#E8F5E9] px-3.5 py-1 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.2em] text-[#2E5D3B]">
+        <p className="mb-4 inline-flex items-center gap-2 rounded-control border border-[#C8E6C9] bg-[#E8F5E9] px-3.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#2E5D3B]">
           {eyebrow}
         </p>
       ) : null}
 
       <h2
         id={id}
-        className="text-[clamp(2rem,1.35rem+2.4vw,3.25rem)] font-semibold tracking-[-0.035em] text-[#2E5D3B]"
+        className="text-[clamp(1.5rem,1.25rem+1.5vw,2.375rem)] font-bold uppercase leading-[1.2] tracking-[0.06em] text-[#2E5D3B]"
       >
         {heading}
       </h2>

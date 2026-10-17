@@ -24,7 +24,7 @@ export function Footer() {
               onClick={(event) => handleNavigate(event, '#home')}
               className="inline-flex items-center"
             >
-              <span className="text-xl font-bold tracking-[-0.02em] text-white">
+              <span className="font-display text-xl font-extrabold tracking-[-0.03125em] text-white">
                 Hariesh.V
               </span>
             </a>
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Navigation with light yellow hover accents */}
           <nav aria-label="Footer" className="lg:col-span-4 min-w-0">
-            <h2 className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#C8E6C9]">
+            <h2 className="font-heading text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#C8E6C9]">
               Navigation
             </h2>
 
@@ -63,7 +63,7 @@ export function Footer() {
 
           {/* Social with light green/yellow hover accents */}
           <div className="lg:col-span-3 min-w-0">
-            <h2 className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#C8E6C9]">
+            <h2 className="font-heading text-[0.625rem] font-bold uppercase tracking-[0.2em] text-[#C8E6C9]">
               Connect
             </h2>
 

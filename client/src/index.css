@@ -1,44 +1,17 @@
 @import 'tailwindcss';
 
 /* ==========================================================================
-   Self-hosted typefaces
-   --------------------------------------------------------------------------
-   Outfit Variable for display and UI, JetBrains Mono Variable for technical
-   metadata. Files live in `public/fonts/` so they are served from the same
-   origin (no third-party request, no extra DNS lookup) and can be preloaded
-   from index.html without a build-time hash.
-   ========================================================================== */
-
-@font-face {
-  font-family: 'Outfit Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  src: url('/fonts/outfit-latin-wght-normal.woff2') format('woff2-variations');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
-    U+FFFD;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono Variable';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 800;
-  src: url('/fonts/jetbrains-mono-latin-wght-normal.woff2') format('woff2-variations');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-    U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
-    U+FFFD;
-}
-
-/* ==========================================================================
-   HARIESH.V - Light Yellow + Light Green Premium Palette
+   HARIESH.V - Cormorant Garamond Luxury Editorial & Natural Brand Palette
    ========================================================================== */
 
 @theme {
-  /* -- Type -------------------------------------------------------------- */
-  --font-display: 'Outfit Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+  /* -- Type: Primary Serif Typography (Cormorant Garamond) ----------------- */
+  --font-primary: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-display: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-heading: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-sans: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
 
   /* -- Ink & Typography -------------------------------------------------- */
   --color-ink: #172117;              /* Dark text */
@@ -87,6 +60,7 @@
 }
 
 :root {
+  --font-primary: 'Cormorant Garamond', Georgia, Cambria, 'Times New Roman', Times, serif;
   --background: var(--color-paper);
   --background-secondary: var(--color-green-soft);
   --surface: #FFFFFF;
@@ -120,6 +94,7 @@
     max-width: 100%;
     overflow-x: hidden;
     overflow-x: clip;
+    font-family: var(--font-primary);
   }
 
   body {
@@ -130,7 +105,7 @@
       radial-gradient(ellipse 70% 45% at 50% -12%, rgb(200 230 201 / 0.35), transparent 75%),
       radial-gradient(ellipse 45% 35% at 85% 15%, rgb(255 244 184 / 0.28), transparent 70%);
     color: var(--color-ink);
-    font-family: var(--font-display);
+    font-family: var(--font-primary);
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -143,15 +118,31 @@
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-primary);
     text-wrap: balance;
-    letter-spacing: -0.03em;
-    line-height: 1.08;
+    letter-spacing: normal;
+    line-height: 1.15;
     color: var(--color-ink-deep);
   }
 
   p {
     text-wrap: pretty;
+    line-height: 1.65;
+  }
+
+  p,
+  span,
+  a,
+  li,
+  label,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-primary);
   }
 
   /* Visible, high-contrast focus state on every interactive element. */
@@ -190,6 +181,7 @@
   textarea,
   select {
     font: inherit;
+    font-family: var(--font-primary);
     color: inherit;
   }
 

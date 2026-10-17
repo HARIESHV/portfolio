@@ -172,7 +172,7 @@ export function GenerativeAI() {
                     {pillar.subtitle}
                   </p>
 
-                  <h3 className="mt-1 text-xl font-bold tracking-[-0.02em] text-[#2E5D3B] sm:text-2xl">
+                  <h3 className="mt-1 font-display text-xl font-bold leading-[1.35] tracking-[-0.2px] text-[#2E5D3B] sm:text-2xl">
                     {pillar.title}
                   </h3>
 
@@ -182,7 +182,7 @@ export function GenerativeAI() {
                 </div>
 
                 <div className="mt-6 border-t border-[#DDE8D8] pt-5">
-                  <span className="font-mono text-[0.625rem] font-bold uppercase tracking-[0.16em] text-[#2E5D3B]">
+                  <span className="font-heading text-[0.625rem] font-bold uppercase tracking-[0.16em] text-[#2E5D3B]">
                     Technologies & Techniques
                   </span>
                   <ul className="mt-2.5 flex flex-wrap gap-1.5">
@@ -207,10 +207,10 @@ export function GenerativeAI() {
         <div className="rounded-[22px] border border-[#DDE8D8] bg-white p-6 shadow-soft sm:p-8">
           <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#DDE8D8] pb-5">
             <div>
-              <span className="font-mono text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
+              <span className="font-heading text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
                 Architectural Flow
               </span>
-              <h4 className="mt-1 text-lg font-bold text-[#172117] sm:text-xl">
+              <h4 className="mt-1 font-display text-lg font-bold leading-[1.35] tracking-[-0.2px] text-[#172117] sm:text-xl">
                 End-to-End Generative AI Application Stack
               </h4>
             </div>

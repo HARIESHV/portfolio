@@ -108,7 +108,7 @@ function CertificateViewerDialog({ group, onClose }) {
             <div className="min-w-0">
               <h2
                 id="certificate-modal-title"
-                className="truncate text-sm font-bold tracking-tight text-[#2E5D3B] sm:text-lg"
+                className="font-display truncate text-sm font-semibold tracking-[-0.2px] text-[#2E5D3B] sm:text-lg"
                 title={`${group.name} Certificate Viewer`}
               >
                 {group.name} Certificate Viewer
@@ -162,7 +162,7 @@ function CertificateViewerItem({ certificate, index, total }) {
   return (
     <section className="w-full">
       <div className="mb-3 flex flex-wrap items-baseline gap-x-2.5 gap-y-1 text-white">
-        <h3 className="min-w-0 text-sm font-semibold tracking-tight sm:text-base" title={certificate.title}>
+        <h3 className="font-display min-w-0 text-sm font-semibold tracking-[-0.2px] sm:text-base" title={certificate.title}>
           {certificate.title}
         </h3>
         <span className="font-mono text-[0.6875rem] text-[#C8E6C9]">

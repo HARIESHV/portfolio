@@ -9,10 +9,13 @@ export function Journey() {
   return (
     <Section id="experience" labelledBy="journey-heading" surface="cream" reveal>
       <header className="max-w-[48rem]">
-        <h2 id="journey-heading" className="text-3xl font-semibold text-[#292820] sm:text-4xl">
+        <h2
+          id="journey-heading"
+          className="text-3xl font-bold uppercase leading-[1.2] tracking-[0.06em] text-[#292820] sm:text-4xl"
+        >
           Education &amp; Experience
         </h2>
-        <p className="mt-3 max-w-[62ch] text-base leading-7 text-[#716B60]">
+        <p className="mt-3 max-w-[62ch] text-base leading-relaxed text-[#716B60] sm:text-[1.0625rem]">
           My academic journey and technical foundation.
         </p>
       </header>

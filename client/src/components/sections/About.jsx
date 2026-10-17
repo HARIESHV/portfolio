@@ -40,12 +40,12 @@ export function About() {
       {/* Centered section heading */}
       <Reveal>
         <div className="flex flex-col items-center text-center">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50 px-3.5 py-1 font-mono text-xs font-semibold uppercase tracking-wider text-orange-600 shadow-2xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-200/80 bg-orange-50 px-3.5 py-1 text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-orange-600 shadow-2xs">
             {about.badge}
           </span>
           <h2
             id="about-heading"
-            className="mt-3 text-3xl font-extrabold tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl uppercase"
+            className="mt-3 text-[clamp(1.5rem,1.25rem+1.5vw,2.375rem)] font-bold uppercase leading-[1.2] tracking-[0.06em] text-neutral-900"
           >
             {about.heading}
           </h2>
@@ -76,10 +76,10 @@ export function About() {
 
                 {/* Name & Title */}
                 <div className="mt-5">
-                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900">
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-normal text-neutral-900">
                     {profile.wordmark}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-orange-600 sm:text-[0.9375rem]">
+                  <p className="mt-1 text-base font-medium text-orange-600 sm:text-[1.0625rem]">
                     {about.role}
                   </p>
                 </div>
@@ -91,10 +91,10 @@ export function About() {
                       <Icon name="MapPin" size={15} />
                     </span>
                     <div>
-                      <span className="font-mono text-[0.6875rem] font-semibold uppercase tracking-wider text-neutral-400 block">
+                      <span className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-neutral-500 block">
                         Location
                       </span>
-                      <span className="font-semibold text-neutral-800">
+                      <span className="text-sm sm:text-base font-semibold text-neutral-800">
                         {about.location}
                       </span>
                     </div>
@@ -108,10 +108,10 @@ export function About() {
                       </span>
                     </span>
                     <div>
-                      <span className="font-mono text-[0.6875rem] font-semibold uppercase tracking-wider text-neutral-400 block">
+                      <span className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-neutral-500 block">
                         Status
                       </span>
-                      <span className="font-semibold text-emerald-700">
+                      <span className="text-sm sm:text-base font-semibold text-emerald-700">
                         {about.status}
                       </span>
                     </div>
@@ -125,7 +125,7 @@ export function About() {
                   href={github.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 text-xs font-semibold text-neutral-800 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-100 active:scale-[0.98]"
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 text-sm font-semibold text-neutral-800 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-100 active:scale-[0.98]"
                 >
                   <Icon name="Github" size={15} />
                   <span>GitHub</span>
@@ -135,7 +135,7 @@ export function About() {
                   href={linkedin.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 text-xs font-semibold text-neutral-800 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-100 active:scale-[0.98]"
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 text-sm font-semibold text-neutral-800 transition-all duration-200 hover:border-neutral-300 hover:bg-neutral-100 active:scale-[0.98]"
                 >
                   <Icon name="Linkedin" size={15} />
                   <span>LinkedIn</span>
@@ -151,7 +151,7 @@ export function About() {
           {/* Clean About Me Description Card */}
           <Reveal delay={0.1}>
             <div className="rounded-2xl border border-neutral-200/80 bg-white p-6 sm:p-8 shadow-sm transition-all duration-300 hover:shadow-md">
-              <div className="space-y-4 text-[0.9375rem] leading-relaxed text-neutral-600 sm:text-base sm:leading-[1.75]">
+              <div className="space-y-4 text-base leading-relaxed text-neutral-700 sm:text-[1.0625rem] sm:leading-[1.8]">
                 {about.paragraphs.map((p) => (
                   <p key={p.id}>
                     {p.lead}
@@ -171,10 +171,10 @@ export function About() {
                   key={stat.label}
                   className="group rounded-2xl border border-neutral-200/80 bg-white p-4 sm:p-5 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-sm"
                 >
-                  <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-orange-600 transition-transform duration-300 group-hover:scale-105 origin-left">
+                  <div className="text-3xl sm:text-4xl font-bold tracking-tight text-orange-600 transition-transform duration-300 group-hover:scale-105 origin-left">
                     {stat.value}
                   </div>
-                  <div className="mt-1 font-mono text-[0.6875rem] font-bold uppercase tracking-wider text-neutral-500 leading-tight">
+                  <div className="mt-1 text-[0.75rem] font-semibold uppercase tracking-[0.1em] text-neutral-600 leading-tight">
                     {stat.label}
                   </div>
                 </div>
@@ -188,7 +188,7 @@ export function About() {
       <div className="mt-16 sm:mt-20">
         <Reveal delay={0.18}>
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-2xl font-extrabold tracking-tight text-neutral-900 sm:text-3xl uppercase">
+            <h3 className="text-2xl font-bold uppercase leading-[1.2] tracking-[0.06em] text-neutral-900 sm:text-3xl">
               {about.interestsHeading}
             </h3>
             {/* Small orange underline below heading */}
@@ -222,10 +222,10 @@ export function About() {
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-mono text-xs sm:text-[0.8125rem] font-bold uppercase tracking-wider text-neutral-900 transition-colors duration-200 group-hover:text-orange-600">
+                    <h4 className="text-sm sm:text-base font-bold uppercase tracking-[0.06em] text-neutral-900 transition-colors duration-200 group-hover:text-orange-600">
                       {interest.title}
                     </h4>
-                    <p className="mt-1.5 text-xs sm:text-[0.8125rem] leading-relaxed text-neutral-600">
+                    <p className="mt-1.5 text-sm sm:text-[0.9375rem] leading-relaxed text-neutral-600">
                       {interest.description}
                     </p>
                   </div>

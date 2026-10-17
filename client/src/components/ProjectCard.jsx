@@ -89,7 +89,7 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-[#172117] p-6 text-center">
-            <span className="font-mono text-xs uppercase tracking-wider text-[#C8E6C9]">
+            <span className="text-sm uppercase tracking-wider text-[#C8E6C9]">
               {project.name}
             </span>
           </div>
@@ -103,7 +103,7 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
 
         {/* Quick view overlay badge on hover */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/60 via-transparent to-transparent p-3.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-xs text-white">
-          <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] text-[#C8E6C9]">
+          <span className="inline-flex items-center gap-1.5 text-[0.75rem] text-[#C8E6C9]">
             <Icon name="Eye" size={13} />
             Click card to inspect full architecture
           </span>
@@ -116,13 +116,13 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
           {/* Metadata Row */}
           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-2">
             {/* Category badge */}
-            <span className="inline-block max-w-full rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-3 py-1 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B] break-words text-balance leading-relaxed">
+            <span className="inline-block max-w-full rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-3 py-1 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B] break-words text-balance leading-relaxed">
               {project.category}
             </span>
 
             {/* Featured pulse indicator if featured */}
             {project.featured && (
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#C8E6C9] bg-[#E8F5E9] px-2.5 py-1 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B]">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#C8E6C9] bg-[#E8F5E9] px-2.5 py-1 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#2E5D3B] animate-pulse" />
                 Featured Flagship
               </span>
@@ -132,7 +132,7 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
             {project.duration ? (
               <>
                 <span aria-hidden="true" className="hidden sm:inline h-3 w-px bg-[#DDE8D8]" />
-                <span className="inline-flex items-center gap-1.5 font-mono text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-[#5A6B5C]">
+                <span className="inline-flex items-center gap-1.5 text-[0.75rem] font-medium uppercase tracking-[0.1em] text-[#5A6B5C]">
                   <Icon name="Calendar" size={12} className="shrink-0 text-[#2E5D3B]" />
                   {project.duration}
                 </span>
@@ -140,25 +140,25 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
             ) : null}
           </div>
 
-          {/* 3. Project Title */}
-          <h3 className="mt-4 text-xl font-bold leading-tight tracking-[-0.025em] text-[#1E4620] sm:text-[1.4rem] break-words">
+          {/* 3. Project Title - visually prominent with Cormorant Garamond */}
+          <h3 className="mt-4 text-[clamp(1.25rem,1.15rem+0.4vw,1.5rem)] font-bold leading-[1.25] tracking-normal text-[#1E4620] break-words">
             {project.name}
           </h3>
 
           {/* 4. Project Description */}
-          <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#4A5568] break-words">
+          <p className="mt-3 text-[0.9375rem] leading-relaxed text-[#4A5568] sm:text-base break-words">
             {project.description}
           </p>
 
           {/* 5. Key Highlights */}
           {highlights.length > 0 && (
             <div className="mt-4">
-              <h4 className="font-mono text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#6c8471]">
+              <h4 className="text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#6c8471]">
                 Key Highlights
               </h4>
               <ul className="mt-2.5 space-y-2">
                 {highlights.map((feat) => (
-                  <li key={feat} className="flex min-w-0 items-start gap-2.5 text-[0.8125rem] text-[#2C3E30]">
+                  <li key={feat} className="flex min-w-0 items-start gap-2.5 text-[0.875rem] text-[#2C3E30]">
                     <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#E8F5E9] text-[#2E5D3B]">
                       <Icon name="Check" size={10} strokeWidth={2.5} />
                     </span>
@@ -177,14 +177,14 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
             <ul className="flex flex-wrap gap-2">
               {shownTech.map((tech) => (
                 <li key={tech}>
-                  <span className="inline-flex items-center rounded-full border border-[#C8E6C9] bg-[#E8F5E9] px-3 py-1 font-mono text-[0.75rem] font-medium text-[#2E5D3B] break-words">
+                  <span className="inline-flex items-center rounded-full border border-[#C8E6C9] bg-[#E8F5E9] px-3 py-1 text-[0.8125rem] font-medium text-[#2E5D3B] break-words">
                     {tech}
                   </span>
                 </li>
               ))}
               {overflowTech > 0 && (
                 <li>
-                  <span className="inline-flex items-center rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2.5 py-1 font-mono text-[0.75rem] font-bold text-[#2E5D3B]">
+                  <span className="inline-flex items-center rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-2.5 py-1 text-[0.8125rem] font-bold text-[#2E5D3B]">
                     +{overflowTech}
                   </span>
                 </li>
@@ -203,7 +203,7 @@ export function ProjectCard({ project, index = 0, onOpenModal }) {
                 type="button"
                 onClick={() => onOpenModal && onOpenModal(project)}
                 aria-label={`View full details for ${project.name}`}
-                className="group/btn inline-flex h-10 w-full min-[400px]:w-auto sm:w-auto cursor-pointer items-center justify-center gap-2 rounded-full bg-[#2E5D3B] px-5 text-sm font-semibold text-white shadow-soft transition-all duration-200 hover:bg-[#244b2f] hover:shadow-lift active:translate-y-px"
+                className="group/btn inline-flex h-10 w-full min-[400px]:w-auto sm:w-auto cursor-pointer items-center justify-center gap-2 rounded-full bg-[#2E5D3B] px-5 text-sm font-semibold tracking-wide text-white shadow-soft transition-all duration-200 hover:bg-[#244b2f] hover:shadow-lift active:translate-y-px"
               >
                 <span>View Details</span>
                 <Icon

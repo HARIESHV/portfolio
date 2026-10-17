@@ -86,11 +86,11 @@ function OrganizationCard({ group, onView }) {
 
       {/* Organization identity */}
       <div className="mt-5 flex flex-wrap items-center justify-between gap-2.5">
-        <span className="inline-block max-w-full rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-3 py-1 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.14em] text-[#2E5D3B] break-words text-balance leading-relaxed">
+        <span className="inline-block max-w-full rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-3.5 py-1 text-[0.75rem] font-bold uppercase tracking-[0.12em] text-[#2E5D3B] break-words text-balance leading-relaxed">
           {group.name}
         </span>
 
-        <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[#C8E6C9] bg-[#E8F5E9] px-2.5 py-1 text-[0.6875rem] font-semibold text-[#2E5D3B]">
+        <span className="inline-flex shrink-0 items-center gap-1 rounded-full border border-[#C8E6C9] bg-[#E8F5E9] px-2.5 py-1 text-[0.75rem] font-semibold text-[#2E5D3B]">
           <Icon name="Award" size={13} className="text-[#2E5D3B]" />
           {count} {count === 1 ? 'Course' : 'Courses'}
         </span>

@@ -51,7 +51,7 @@ export function Contact() {
 
       <div className="max-w-3xl">
         {/* Light yellow decorative badge */}
-        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-3.5 py-1 font-mono text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F2E8A5] bg-[#FFF4B8] px-3.5 py-1 font-heading text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
           <span className="h-2 w-2 rounded-full bg-[#2E5D3B]" />
           Available for new opportunities
         </div>
@@ -68,7 +68,7 @@ export function Contact() {
         {/* Contact info card (White card with soft border) */}
         <Reveal className="lg:col-span-5">
           <div className="rounded-[22px] border border-[#DDE8D8] bg-white p-5 shadow-soft sm:p-7 max-w-full min-w-0">
-            <h3 className="font-mono text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
+            <h3 className="font-heading text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-[#2E5D3B]">
               Direct Contact & Socials
             </h3>
 

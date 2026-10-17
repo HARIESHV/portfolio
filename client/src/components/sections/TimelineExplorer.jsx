@@ -49,13 +49,13 @@ export function TimelineExplorer({ id, label, entries }) {
                     <Icon name={entry.icon} size={19} />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm font-semibold text-[#292820] sm:text-[0.9375rem]">
+                    <span className="block truncate text-base font-bold text-[#292820]">
                       {entry.navTitle}
                     </span>
-                    <span className="mt-1 block truncate text-xs text-[#716B60] sm:text-[0.8125rem]">
+                    <span className="mt-0.5 block truncate text-xs sm:text-sm text-[#716B60]">
                       {entry.organization}
                     </span>
-                    <span className="mt-1.5 block font-mono text-[0.625rem] leading-4 text-[#8A8276] sm:text-[0.6875rem] break-words [overflow-wrap:anywhere]">
+                    <span className="mt-1.5 block text-[0.75rem] leading-4 text-[#8A8276] sm:text-[0.8125rem] break-words [overflow-wrap:anywhere]">
                       {entry.navMeta}
                     </span>
                   </span>
@@ -93,13 +93,13 @@ export function TimelineExplorer({ id, label, entries }) {
                   <Icon name={activeEntry.icon} size={18} />
                 </span>
                 <div className="min-w-0 flex-1">
-                  <p className="font-mono text-[0.625rem] font-medium uppercase tracking-[0.12em] text-[#897E70]">
+                  <p className="text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-[#897E70]">
                     {activeEntry.kind}
                   </p>
-                  <h3 className="mt-1 text-lg font-semibold leading-tight text-[#292820] sm:text-2xl break-words">
+                  <h3 className="mt-1 text-xl font-bold leading-[1.25] tracking-normal text-[#292820] sm:text-2xl break-words">
                     {activeEntry.title}
                   </h3>
-                  <p className="mt-1 text-sm font-medium text-[#70695D] break-words">
+                  <p className="mt-1 text-base font-medium text-[#70695D] break-words">
                     {activeEntry.organization}
                   </p>
                 </div>
@@ -110,7 +110,7 @@ export function TimelineExplorer({ id, label, entries }) {
               </span>
             </div>
 
-            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#756D61] sm:mt-6 sm:text-sm">
+            <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-[#756D61] sm:mt-6">
               <span className="inline-flex min-w-0 items-center gap-2 break-words">
                 <Icon name="Calendar" size={15} className="shrink-0 text-[#A74A24]" />
                 <span className="min-w-0 break-words">{activeEntry.duration}</span>
@@ -123,15 +123,15 @@ export function TimelineExplorer({ id, label, entries }) {
               ) : null}
             </div>
 
-            <p className="mt-4 max-w-[66ch] text-sm leading-6 text-[#575349] sm:mt-6 sm:text-[0.9375rem] sm:leading-7 break-words [overflow-wrap:anywhere]">
+            <p className="mt-4 max-w-[66ch] text-base leading-relaxed text-[#575349] sm:mt-6 sm:text-[1.0625rem] break-words [overflow-wrap:anywhere]">
               {activeEntry.description}
             </p>
 
             <div className="mt-6 sm:mt-7">
-              <h4 className="text-xs font-semibold text-[#37342D]">{activeEntry.listTitle}</h4>
+              <h4 className="text-sm font-bold uppercase tracking-[0.06em] text-[#37342D]">{activeEntry.listTitle}</h4>
               <ul className="mt-3 grid gap-2.5 sm:gap-3">
                 {activeEntry.points.map((point) => (
-                  <li key={point} className="flex min-w-0 items-start gap-2.5 text-sm leading-5 text-[#575349]">
+                  <li key={point} className="flex min-w-0 items-start gap-2.5 text-sm sm:text-base leading-6 text-[#575349]">
                     <span className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#D9874E]" />
                     <span className="min-w-0 flex-1 break-words [overflow-wrap:anywhere]">{point}</span>
                   </li>
@@ -144,7 +144,7 @@ export function TimelineExplorer({ id, label, entries }) {
                 {activeEntry.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="max-w-full rounded-full border border-[#EADFCB] bg-[#FAF4E8] px-3 py-1.5 font-mono text-[0.625rem] font-medium text-[#62543E] sm:text-[0.6875rem] break-words [overflow-wrap:anywhere]"
+                    className="max-w-full rounded-full border border-[#EADFCB] bg-[#FAF4E8] px-3 py-1.5 text-[0.75rem] font-medium text-[#62543E] break-words [overflow-wrap:anywhere]"
                   >
                     {tag}
                   </span>

@@ -55,61 +55,44 @@ export function Hero() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2E5D3B] opacity-60 motion-reduce:animate-none" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2E5D3B]" />
               </span>
-              <span className="font-mono text-[0.6875rem] font-medium uppercase tracking-[0.16em] text-[#2E5D3B]">
+              <span className="text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#2E5D3B]">
                 {profile.eyebrow}
               </span>
             </motion.p>
 
-            {/* Greeting */}
-            <motion.p
+            {/* Introduction & Name in large, elegant Cormorant Garamond */}
+            <motion.div
               initial={reduce ? false : { opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={
                 reduce ? { duration: 0 } : { duration: 0.7, delay: 0.08, ease: EASE_OUT_EXPO }
               }
-              className="mb-3 text-lg font-semibold text-[#2E5D3B] sm:text-xl"
+              className="mb-2"
             >
-              {profile.greeting}
-            </motion.p>
+              <p className="text-base sm:text-lg font-medium italic text-[#425846]">
+                Hello, I am
+              </p>
+              <h1
+                id="hero-heading"
+                className="mt-1 text-[clamp(2.75rem,2.2rem+2.8vw,4.5rem)] font-bold leading-[1.04] tracking-normal text-[#2E5D3B]"
+              >
+                {profile.name}
+              </h1>
+            </motion.div>
 
-            {/* Main Headline in Dark Green */}
-            <h1
-              id="hero-heading"
-              className="text-balance-narrow text-[clamp(2.35rem,1.5rem+3.6vw,4.25rem)] font-bold leading-[1.08] tracking-[-0.04em] text-[#2E5D3B]"
+            {/* Professional Title Headline */}
+            <motion.div
+              initial={reduce ? false : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={
+                reduce ? { duration: 0 } : { duration: 0.7, delay: 0.18, ease: EASE_OUT_EXPO }
+              }
+              className="mt-2 text-[clamp(1.35rem,1.15rem+1vw,2.125rem)] font-semibold leading-[1.25] text-[#2E5D3B]"
             >
-              <span className="sr-only">
-                {profile.title.lead} {profile.title.joiner} {profile.title.trail}
-              </span>
-              <span aria-hidden="true" className="block">
-                <span className="block overflow-hidden pb-1">
-                  <motion.span
-                    variants={variants}
-                    initial="hidden"
-                    animate="visible"
-                    custom={0}
-                    className="block text-[#2E5D3B]"
-                  >
-                    {profile.title.lead}
-                  </motion.span>
-                </span>
-                <span className="mt-1 block overflow-hidden pb-1">
-                  <motion.span
-                    variants={variants}
-                    initial="hidden"
-                    animate="visible"
-                    custom={1}
-                    className="block"
-                  >
-                    <span className="text-[#172117]/80">
-                      {profile.title.joiner}
-                    </span>{' '}
-                    <span className="text-[#2E5D3B]">
-                      {profile.title.trail}
-                    </span>
-                  </motion.span>
-                </span>
-              </span>
-            </h1>
+              <span>{profile.title.lead}</span>{' '}
+              <span className="font-normal italic text-[#425846]">{profile.title.joiner}</span>{' '}
+              <span className="text-[#2E5D3B]">{profile.title.trail}</span>
+            </motion.div>
 
             <motion.p
               initial={reduce ? false : { opacity: 0, y: 14 }}
@@ -117,7 +100,7 @@ export function Hero() {
               transition={
                 reduce ? { duration: 0 } : { duration: 0.7, delay: 0.28, ease: EASE_OUT_EXPO }
               }
-              className="mt-6 max-w-[54ch] text-[0.9375rem] leading-relaxed text-[#425846] sm:text-base font-normal"
+              className="mt-6 max-w-[54ch] text-base leading-relaxed text-[#425846] sm:text-[1.0625rem] font-normal"
             >
               {profile.description}
             </motion.p>
@@ -177,7 +160,7 @@ export function Hero() {
               transition={reduce ? { duration: 0 } : { duration: 0.7, delay: 0.46 }}
               className="mt-8 flex flex-wrap items-center gap-2.5 border-t border-[#DDE8D8] pt-6"
             >
-              <span className="mr-1 font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-[#6c8471]">
+              <span className="mr-1 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#6c8471]">
                 Connect
               </span>
 
@@ -191,7 +174,7 @@ export function Hero() {
                 className="flex h-10 items-center gap-2 rounded-control border border-[#DDE8D8] bg-white px-3.5 text-[#2E5D3B] transition-colors duration-200 hover:border-[#2E5D3B] hover:bg-[#E8F5E9]"
               >
                 <Icon name="Mail" size={16} />
-                <span className="hidden font-mono text-[0.75rem] font-medium sm:inline">
+                <span className="hidden text-sm font-medium sm:inline">
                   {profile.contact.email.display}
                 </span>
                 <span className="sr-only sm:hidden">{profile.contact.email.display}</span>
@@ -225,7 +208,7 @@ export function Hero() {
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2E5D3B] opacity-60" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2E5D3B]" />
                   </span>
-                  <span className="text-[0.8125rem] font-medium leading-snug text-[#172117]">
+                  <span className="text-[0.875rem] font-medium leading-snug text-[#172117]">
                     {profile.tagline}
                   </span>
                 </p>
@@ -257,7 +240,7 @@ export function Hero() {
                   >
                     <Icon name={label.icon} size={12} className="text-[#2E5D3B]" />
                   </span>
-                  <span className="font-mono text-[0.6875rem] font-medium text-[#172117]">
+                  <span className="text-[0.75rem] font-medium text-[#172117]">
                     {label.name}
                   </span>
                 </li>
@@ -332,7 +315,7 @@ function FloatLabel({ name, icon, position, index, bgTone = 'green', className }
       >
         <Icon name={icon} size={12} className="text-[#2E5D3B]" />
       </span>
-      <span className="font-mono text-[0.6875rem] font-semibold tracking-tight text-[#172117]">
+      <span className="text-[0.75rem] font-semibold tracking-normal text-[#172117]">
         {name}
       </span>
     </motion.span>

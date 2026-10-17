@@ -18,7 +18,7 @@ export function Tag({ children, tone = 'neutral', className }) {
     <span
       className={cn(
         'inline-flex items-center rounded-control border px-3 py-1',
-        'font-mono text-[0.6875rem] leading-5 tracking-tight',
+        'text-[0.75rem] leading-5 tracking-[0.01em]',
         tones[tone] ?? tones.neutral,
         className,
       )}
