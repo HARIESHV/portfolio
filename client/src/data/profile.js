@@ -20,8 +20,12 @@ export const profile = {
     trail: 'Generative AI Enthusiast',
   },
   tagline: 'Building Intelligent Web Applications',
-  description:
-    'I am Focused on developing modern, scalable web applications by combining Full Stack Development, cloud technologies, and Generative AI to solve real-world problems and deliver meaningful user experiences.',
+  description: {
+    lead: 'I build modern web applications and intelligent AI-powered solutions by combining ',
+    bold: 'Full Stack Development, Generative AI, and Linux-based technologies',
+    trail:
+      '. Passionate about open-source, automation, and turning innovative ideas into real-world applications.',
+  },
   about: {
     badge: 'Who I Am',
     heading: 'ABOUT ME',
@@ -34,20 +38,33 @@ export const profile = {
         lead: "I'm a passionate ",
         bold: 'Full Stack Developer and Generative AI enthusiast',
         trail:
-          ' focused on building modern, scalable, and intelligent web applications. I enjoy turning real-world problems into practical digital solutions by combining strong software engineering with AI technologies.',
+          ' who enjoys building modern, scalable, and intelligent applications. I combine frontend and backend development with AI-powered technologies to transform ideas into practical solutions.',
       },
       {
         id: 'p2',
-        lead: 'My journey started with a curiosity about how websites and applications work behind the scenes. This led me to explore ',
-        bold: 'React, JavaScript, TypeScript, Node.js, Express.js, Python, MongoDB, REST APIs, and cloud technologies',
-        trail: ' while continuously improving my development skills.',
+        lead: 'I work with technologies like ',
+        bold: 'React.js, JavaScript, TypeScript, Node.js, Express.js, Python, MongoDB, and REST APIs',
+        trail: ', focusing on creating responsive user interfaces and reliable backend systems.',
       },
       {
         id: 'p3',
-        lead: "I'm also exploring ",
-        bold: 'Generative AI, LLMs, AI Agents, RAG systems, and intelligent automation',
+        lead: "Beyond web development, I'm passionate about ",
+        bold: 'Generative AI, Large Language Models (LLMs), AI Agents, and Retrieval-Augmented Generation (RAG)',
         trail:
-          ' to create applications that can understand, reason, and provide useful solutions. I enjoy learning new technologies, solving challenging problems, and building projects that have real-world impact.',
+          '. I explore ways to integrate intelligent capabilities into applications and build solutions that make technology more useful.',
+      },
+      {
+        id: 'p4',
+        lead: 'As a ',
+        bold: 'Linux enthusiast and open-source technology explorer',
+        trail:
+          ', I enjoy working in Linux environments, exploring command-line tools, managing development environments, and understanding how systems work behind the scenes.',
+      },
+      {
+        id: 'p5',
+        lead: "I'm continuously learning, experimenting with emerging technologies, and building projects that combine software engineering and artificial intelligence to solve real-world challenges.",
+        bold: '',
+        trail: '',
       },
     ],
     stats: [

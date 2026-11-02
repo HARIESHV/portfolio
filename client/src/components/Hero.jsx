@@ -102,7 +102,9 @@ export function Hero() {
               }
               className="mt-6 max-w-[54ch] text-base leading-relaxed text-[#425846] sm:text-[1.0625rem] font-normal"
             >
-              {profile.description}
+              {profile.description.lead}
+              <strong className="font-semibold text-[#2E5D3B]">{profile.description.bold}</strong>
+              {profile.description.trail}
             </motion.p>
 
             {/* CTAs */}

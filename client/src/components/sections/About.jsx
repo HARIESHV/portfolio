@@ -155,7 +155,7 @@ export function About() {
                 {about.paragraphs.map((p) => (
                   <p key={p.id}>
                     {p.lead}
-                    <strong className="font-semibold text-neutral-900">{p.bold}</strong>
+                    {p.bold && <strong className="font-semibold text-neutral-900">{p.bold}</strong>}
                     {p.trail}
                   </p>
                 ))}
