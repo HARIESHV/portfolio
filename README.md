@@ -1,6 +1,6 @@
 # HARIESH.V — Portfolio
 
-Personal portfolio for Hariesh V, Full Stack Developer & Generative AI Enthusiast.
+Personal portfolio for Hariesh V, Full Stack Developer, Generative AI Enthusiast & Linux User.
 
 A single-page React site with an Express contact API. Swiss-editorial visual
 system: predominantly white, black and signal red, self-hosted variable type,

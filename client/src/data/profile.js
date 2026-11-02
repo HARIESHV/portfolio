@@ -15,9 +15,9 @@ export const profile = {
   greeting: "Hi, I'm HARIESH.V",
   /** Split so each fragment can carry its own colour without string surgery. */
   title: {
-    lead: 'Full Stack Developer',
+    lead: 'Full Stack Developer, Generative AI Enthusiast',
     joiner: '&',
-    trail: 'Generative AI Enthusiast',
+    trail: 'Linux User',
   },
   tagline: 'Building Intelligent Web Applications',
   description: {
@@ -29,14 +29,14 @@ export const profile = {
   about: {
     badge: 'Who I Am',
     heading: 'ABOUT ME',
-    role: 'Full Stack Developer & Generative AI Enthusiast',
+    role: 'Full Stack Developer, Generative AI Enthusiast & Linux User',
     location: 'Erode, Tamil Nadu, India',
     status: 'Open to Opportunities',
     paragraphs: [
       {
         id: 'p1',
         lead: "I'm a passionate ",
-        bold: 'Full Stack Developer and Generative AI enthusiast',
+        bold: 'Full Stack Developer, Generative AI Enthusiast & Linux User',
         trail:
           ' who enjoys building modern, scalable, and intelligent applications. I combine frontend and backend development with AI-powered technologies to transform ideas into practical solutions.',
       },
@@ -142,7 +142,7 @@ export const profile = {
     status: 'Currently Pursuing',
   },
   seo: {
-    title: 'Hariesh V | Full Stack Developer & Generative AI Enthusiast',
+    title: 'Hariesh V | Full Stack Developer, Generative AI Enthusiast & Linux User',
     description:
       'Portfolio of Hariesh V, a B.Tech Information Technology student focused on Full Stack Development, modern web technologies, and Generative AI.',
   },

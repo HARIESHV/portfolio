@@ -2,7 +2,7 @@
   "name": "hariesh-v-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Premium personal portfolio for HARIESH.V - Full Stack Developer & Generative AI Enthusiast. React + Vite + Tailwind CSS frontend, Express + MongoDB + Resend backend.",
+  "description": "Premium personal portfolio for HARIESH.V - Full Stack Developer, Generative AI Enthusiast & Linux User. React + Vite + Tailwind CSS frontend, Express + MongoDB + Resend backend.",
   "type": "module",
   "engines": {
     "node": ">=20.19.0"

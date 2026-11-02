@@ -68,7 +68,7 @@ export function About() {
                 <div className="relative w-full overflow-hidden rounded-xl border border-neutral-100 bg-neutral-100 shadow-2xs aspect-[4/3] sm:aspect-square lg:aspect-[4/3.2]">
                   <img
                     src={profileImage.available ? profileImage.src : '/images/hariesh-profile.jpg'}
-                    alt="Hariesh V - Full Stack Developer & Generative AI Enthusiast"
+                    alt="Hariesh V - Full Stack Developer, Generative AI Enthusiast & Linux User"
                     className="h-full w-full object-cover object-[center_22%]"
                     loading="lazy"
                   />

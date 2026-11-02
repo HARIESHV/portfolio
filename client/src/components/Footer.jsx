@@ -30,7 +30,7 @@ export function Footer() {
             </a>
 
             <p className="mt-4 max-w-[36ch] text-sm leading-relaxed text-white/85">
-              Full Stack Developer and Generative AI Enthusiast
+              Full Stack Developer, Generative AI Enthusiast & Linux User
             </p>
 
             <p className="mt-6 font-mono text-[0.6875rem] leading-relaxed text-white/70">
