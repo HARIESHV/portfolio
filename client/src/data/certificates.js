@@ -56,6 +56,23 @@ export const certificates = [
     provider: 'Rinex',
     pdfUrl: '/certificates/Rinex-web.pdf',
   },
+
+  {
+    id: 'generative-ai',
+    title: 'Generative Artificial Intelligence Course',
+    organization: 'Infosys',
+    date: 'August 2026 – March 4, 2026',
+    description:
+      'In-depth technical course exploring modern Generative AI, Large Language Models (LLMs), prompt engineering, generative multimodal workflows, and AI integration into production software solutions.',
+    file: '/certificates/Gen AI -Infosys.pdf',
+    preview: '/certificates/previews/infosys.jpg',
+    downloadName: 'Hariesh-V-Infosys-Generative-AI-Certificate.pdf',
+    icon: 'Sparkles',
+    skills: ['Generative AI', 'Large Language Models', 'Prompt Engineering', 'AI System Integration'],
+    // Backward compatibility properties
+    provider: 'Infosys',
+    pdfUrl: '/certificates/Gen AI -Infosys.pdf',
+  },
 ];
 
 export const certificatesWithAvailability = certificates.map((certificate) => ({
